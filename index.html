@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ABURWORK — Робота в Європі для українців | Польща, Німеччина, Нідерланди</title>
+<meta name="description" content="ABURWORK — підбір роботи в Європі для українців. Заповніть анкету і отримайте актуальні вакансії в Польщі, Німеччині та Нідерландах у Viber або Telegram. Для чоловіків, жінок і пар, вік 17–65." />
+<meta name="theme-color" content="#0a0b0d" />
+<meta property="og:title" content="ABURWORK — Робота в Європі для українців" />
+<meta property="og:description" content="Заповніть анкету — і ми надішлемо вам актуальні вакансії у Польщі, Німеччині та Нідерландах у Viber або Telegram." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://picsum.photos/seed/aburwork-og/1200/630" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23c9a24b' stroke-width='2'/%3E%3Cpath d='M3 16h26M16 3c5 4 5 22 0 26M16 3c-5 4-5 22 0 26M5 9c7 4 15 4 22 0M5 23c7-4 15-4 22 0' fill='none' stroke='%23c9a24b' stroke-width='1.3'/%3E%3C/svg%3E" />
+<style>
+:root{
+  /* DARK graphite + gold theme */
+  --bg:#0a0b0d;
+  --bg-elev:#101216;
+  --bg-card:#14161c;
+  --bg-card-2:#181b22;
+  --line:rgba(201,162,75,.18);
+  --line-soft:rgba(255,255,255,.07);
+  --gold-1:#f6dd9b;
+  --gold-2:#c9a24b;
+  --gold-3:#caa047;
+  --gold-grad:linear-gradient(135deg,#f7e0a2 0%,#d4ac57 50%,#9c7526 100%);
+  --gold-soft:rgba(201,162,75,.12);
+  --text:#f4efe4;
+  --beige:#c7b89c;
+  --muted:#8a8270;
+  /* warm-dark band tokens (footer / final CTA) */
+  --dark:#0d0f13;
+  --dark-2:#14161c;
+  --dark-line:rgba(201,162,75,.18);
+  --on-dark:#f4efe4;
+  --on-dark-mute:#bdb29b;
+  --gold-bright:#f6dd9b;
+  --shadow-soft:0 24px 50px rgba(0,0,0,.45);
+  --shadow-card:0 36px 70px rgba(0,0,0,.5);
+  --radius:16px;
+  --radius-lg:24px;
+  --container:1560px;
+  --gutter:90px;
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Poppins',Georgia,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:17px;
+  line-height:1.6;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body.no-scroll{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+input,select,textarea{font-family:inherit;font-size:16px}
+
+/* ambient background texture */
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-fx::before{content:"";position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:1100px;height:700px;background:radial-gradient(ellipse at center,rgba(201,162,75,.12),transparent 62%);filter:blur(50px)}
+.bg-fx::after{content:"";position:absolute;bottom:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(circle,rgba(201,162,75,.08),transparent 62%);filter:blur(40px)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ===== PRELOADER — brand intro (orbit + metallic shimmer) ===== */
+.preloader{
+  /* tweak these to customize colors / speed / size */
+  --pl-bg:#0a0b0d;
+  --pl-gold-1:#f6dd9b;
+  --pl-gold-2:#c9a24b;
+  --pl-logo-w:clamp(176px,33vw,272px);   /* logo size (desktop/tablet/mobile) */
+  --pl-enter-dur:1s;                      /* entrance speed */
+  --pl-shimmer-dur:2.9s;                  /* metallic sweep cycle */
+  --pl-orbit-dur:3.4s;                    /* satellite orbit cycle */
+  --pl-exit-dur:.85s;                     /* fade-out speed */
+  /* globe center within the logo image (constant for this asset) */
+  --pl-globe-x:50%;
+  --pl-globe-y:33.7%;
+  --pl-orbit-size:calc(var(--pl-logo-w) * .54);
+
+  position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(120% 90% at 50% 36%,rgba(201,162,75,.12),transparent 58%),
+    linear-gradient(168deg,#15120c 0%,#0d0f13 55%,#0a0b0d 100%);
+  opacity:1;visibility:visible;
+  transition:opacity var(--pl-exit-dur) var(--ease),visibility 0s linear var(--pl-exit-dur)}
+.preloader::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='pn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pn)'/%3E%3C/svg%3E")}
+.preloader.loaded{opacity:0;visibility:hidden;transition:opacity var(--pl-exit-dur) var(--ease)}
+
+.pl-stage{position:relative;display:flex;flex-direction:column;align-items:center;
+  transition:transform var(--pl-exit-dur) var(--ease),opacity var(--pl-exit-dur) var(--ease)}
+.preloader.loaded .pl-stage{transform:translateY(-10px) scale(1.035);opacity:0}
+
+.pl-logo-wrap{position:relative;width:var(--pl-logo-w);
+  opacity:0;filter:blur(9px);transform:scale(.88);
+  animation:pl-enter var(--pl-enter-dur) var(--ease) .05s forwards}
+.pl-logo{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 26px rgba(201,162,75,.18))}
+
+/* metallic light sweep, masked to the exact logo silhouette */
+.pl-shine{position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  -webkit-mask:url("assets/ABURWORK_logo_transparent.png") center/contain no-repeat;
+          mask:url("assets/ABURWORK_logo_transparent.png") center/contain no-repeat}
+.pl-shine::before{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:48%;
+  background:linear-gradient(105deg,transparent 28%,rgba(255,247,224,.7) 50%,transparent 72%);
+  transform:translateX(-180%) skewX(-8deg);
+  animation:pl-shine var(--pl-shimmer-dur) ease-in-out 1s infinite}
+
+/* satellite orbit around the globe emblem of the logo */
+.pl-orbit{position:absolute;left:var(--pl-globe-x);top:var(--pl-globe-y);
+  width:var(--pl-orbit-size);height:var(--pl-orbit-size);
+  margin-left:calc(var(--pl-orbit-size) / -2);margin-top:calc(var(--pl-orbit-size) / -2);
+  transform:rotateX(66deg) rotate(-14deg);transform-style:preserve-3d;pointer-events:none;
+  opacity:0;animation:pl-fade .9s var(--ease) .5s forwards}
+.pl-orbit-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(201,162,75,.22)}
+.pl-orbit-spin{position:absolute;inset:0;animation:pl-spin var(--pl-orbit-dur) linear infinite}
+.pl-orbit-dot{position:absolute;top:-4px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;
+  background:radial-gradient(circle,#fff7e0,var(--pl-gold-1) 70%);
+  box-shadow:0 0 10px 2px rgba(246,221,155,.85)}
+
+.pl-sub{margin-top:22px;font-size:12px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--pl-gold-2);padding-left:.42em;
+  opacity:0;animation:pl-fade .8s var(--ease) .55s forwards}
+.pl-line{margin-top:18px;height:1px;width:0;
+  background:linear-gradient(90deg,transparent,var(--pl-gold-1),transparent);
+  animation:pl-line .9s var(--ease) .65s forwards}
+
+@keyframes pl-enter{to{opacity:1;filter:blur(0);transform:scale(1)}}
+@keyframes pl-fade{to{opacity:1}}
+@keyframes pl-line{to{width:clamp(120px,22vw,190px)}}
+@keyframes pl-shine{0%{transform:translateX(-180%) skewX(-8deg)}45%,100%{transform:translateX(320%) skewX(-8deg)}}
+@keyframes pl-spin{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){
+  .pl-logo-wrap,.pl-orbit,.pl-sub,.pl-line{animation:none;opacity:1;filter:none;transform:none;width:auto}
+  .pl-line{width:clamp(120px,22vw,190px)}
+  .pl-shine::before,.pl-orbit-spin{animation:none}
+  .pl-orbit{display:none}
+}
+
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter);position:relative;z-index:2}
+.section{padding:50px 0;position:relative;z-index:2}
+.section.tight{padding:50px 0}
+
+/* typography */
+h1,h2,h3,h4{font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--text)}
+h1{font-size:clamp(2.4rem,5.2vw,3.6rem);font-weight:600}
+h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600}
+h3{font-size:clamp(1.2rem,2vw,1.45rem)}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);padding:8px 16px;border:1px solid var(--line);border-radius:100px;background:var(--gold-soft)}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 8px var(--gold-2)}
+.lead{color:var(--beige);font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.65}
+.section-head{max-width:680px;margin:0 auto 56px;text-align:center}
+.section-head.left{margin-left:0;text-align:left}
+.section-head h2{margin:16px 0 14px}
+
+/* buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:100px;padding:15px 26px;font-size:16px;font-weight:500;overflow:hidden;transition:color .4s var(--ease),transform .2s var(--ease),box-shadow .45s var(--ease),border-color .4s var(--ease);isolation:isolate;white-space:nowrap}
+.btn span{position:relative;z-index:2}
+.btn .ico{position:relative;z-index:2;display:flex;width:26px;height:26px;border-radius:50%;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .4s}
+.btn::before{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;transform:translateY(102%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:translateY(0)}
+.btn:active{transform:scale(.975)}
+.btn-primary{background:var(--gold-grad);color:#0a0b0d;box-shadow:0 12px 30px rgba(201,162,75,.28)}
+.btn-primary .ico{background:rgba(10,11,13,.18)}
+.btn-primary::before{background:linear-gradient(135deg,#ffeab4,#e7c069 52%,#c9a24b)}
+.btn-primary:hover{color:#0a0b0d;box-shadow:0 18px 42px rgba(201,162,75,.5)}
+.btn-primary:hover .ico{background:rgba(10,11,13,.22);transform:translateX(3px) translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--gold-1);border:1px solid var(--line)}
+.btn-ghost .ico{background:var(--gold-soft)}
+.btn-ghost::before{background:var(--gold-grad)}
+.btn-ghost:hover{color:#0a0b0d;border-color:transparent;box-shadow:0 16px 40px rgba(201,162,75,.42)}
+.btn-ghost:hover .ico{background:rgba(10,11,13,.22);transform:translateX(3px)}
+.btn-block{width:100%}
+.btn-lg{padding:17px 30px;font-size:17px}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:90;padding:12px 0;transition:transform .45s var(--ease),background .35s,backdrop-filter .35s,border-color .35s;border-bottom:1px solid transparent}
+.header.scrolled{background:rgba(10,11,13,.82);backdrop-filter:blur(18px);border-bottom-color:var(--line-soft)}
+.header.hide{transform:translateY(-115%)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{height:72px;width:auto;display:block;filter:drop-shadow(0 2px 12px rgba(201,162,75,.25))}
+.footer-logo{height:150px}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{padding:9px 14px;font-size:15px;color:var(--beige);border-radius:100px;transition:color .3s,background .3s;line-height:1}
+.nav a:hover{color:var(--text);background:var(--line-soft)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.header-actions .btn{padding:11px 22px;font-size:14.5px;box-shadow:0 8px 20px rgba(201,162,75,.2)}
+.header-actions .btn .ico{display:none}
+.lang-switch{display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;padding:3px;background:rgba(255,255,255,.02)}
+.lang-switch button{padding:6px 13px;font-size:13px;font-weight:600;border-radius:100px;color:var(--muted);transition:color .3s,background .3s}
+.lang-switch button.active{background:var(--gold-grad);color:#0a0b0d}
+.burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:14px;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:rgba(255,255,255,.02)}
+.burger span{width:20px;height:2px;background:var(--gold-1);border-radius:2px;transition:transform .4s var(--ease),opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile menu */
+.mobile-menu{position:fixed;inset:0;z-index:95;background:rgba(8,9,11,.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;padding:96px 24px 32px;transform:translateY(-100%);transition:transform .5s var(--ease);overflow-y:auto}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;margin-bottom:28px}
+.mobile-menu nav a{font-size:22px;font-weight:500;padding:14px 0;border-bottom:1px solid var(--line-soft);color:var(--text)}
+.mm-contact{margin-top:auto;display:flex;flex-direction:column;gap:14px}
+.mm-msgs{display:flex;gap:12px}
+.mm-msgs a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border:1px solid var(--line);border-radius:14px;color:var(--gold-1);font-weight:500}
+.mm-phone{font-size:20px;font-weight:600;color:var(--gold-1);text-align:center}
+
+/* HERO */
+.hero{padding:160px 0 96px;position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{margin-bottom:24px}
+.hero h1 .wm{font-weight:700}
+.hero .lead{max-width:520px;margin-bottom:36px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;font-size:13.5px;font-weight:500;color:var(--beige);border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.02)}
+.chip svg{width:15px;height:15px;color:var(--gold-2)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* form card */
+.form-card{background:linear-gradient(180deg,rgba(24,27,34,.92),rgba(16,18,22,.92));border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
+.form-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.form-card-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.form-card-head .badge-ico{width:40px;height:40px;border-radius:12px;background:var(--gold-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-1)}
+.form-card h3{font-size:20px;font-weight:600}
+.form-card .fc-sub{color:var(--muted);font-size:14px;margin:6px 0 22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:500;color:var(--beige);margin-bottom:8px}
+.field .req{color:var(--gold-2)}
+.input,.select,.textarea{width:100%;background:rgba(10,11,13,.6);border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px;color:var(--text);transition:border-color .3s,box-shadow .3s,background .3s}
+.input::placeholder,.textarea::placeholder{color:#6b6655}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(201,162,75,.14);background:rgba(10,11,13,.85)}
+.select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23c9a24b' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px;cursor:pointer}
+.textarea{resize:vertical;min-height:90px}
+.field.invalid .input,.field.invalid .select,.field.invalid .textarea{border-color:#e06b5e;box-shadow:0 0 0 3px rgba(224,107,94,.14)}
+.field .err{display:none;color:#e89a90;font-size:12.5px;margin-top:6px}
+.field.invalid .err{display:block}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seg-opt{position:relative}
+.seg-opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.seg-opt label{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border:1px solid var(--line-soft);border-radius:12px;font-size:14.5px;font-weight:500;color:var(--beige);transition:all .3s;cursor:pointer}
+.seg-opt label:hover{border-color:var(--gold-2);background:rgba(201,162,75,.08);color:var(--gold-1);transform:translateY(-1px)}
+.seg-opt label:hover svg{transform:scale(1.08)}
+.seg-opt input:focus-visible+label{border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+.seg-opt input:checked+label{border-color:var(--gold-2);background:var(--gold-soft);color:var(--gold-1);box-shadow:0 0 0 1px var(--gold-2) inset}
+.seg-opt svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.consent{display:flex;align-items:flex-start;gap:11px;margin:6px 0 20px;cursor:pointer}
+.consent input{appearance:none;flex:none;width:20px;height:20px;border:1px solid var(--line);border-radius:6px;margin-top:2px;background:rgba(10,11,13,.6);transition:all .25s;position:relative;cursor:pointer}
+.consent input:checked{background:var(--gold-grad);border-color:transparent}
+.consent input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid #0a0b0d;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.consent.invalid input{border-color:#e06b5e;box-shadow:0 0 0 3px rgba(224,107,94,.14)}
+.consent span{font-size:12.5px;color:var(--muted);line-height:1.5}
+.consent a{color:var(--gold-2);text-decoration:underline;text-underline-offset:2px}
+
+/* form states */
+.form-state{display:none;text-align:center;padding:18px 6px}
+.form-state.show{display:block;animation:fadeUp .5s var(--ease)}
+.form-state .st-ico{width:62px;height:62px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center}
+.form-state.success .st-ico{background:var(--gold-soft);border:1px solid var(--line);color:var(--gold-1)}
+.form-state.error .st-ico{background:rgba(224,107,94,.1);border:1px solid rgba(224,107,94,.3);color:#e89a90}
+.form-state h4{font-size:19px;margin-bottom:10px}
+.form-state p{color:var(--beige);font-size:14.5px}
+.form-state .retry{margin-top:18px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* TRUST STRIP */
+.trust{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.015)}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft)}
+.trust-item{background:var(--bg);padding:30px 26px;display:flex;align-items:center;gap:16px}
+.trust-item .ti-ico{width:46px;height:46px;flex:none;border-radius:13px;background:var(--gold-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-1)}
+.trust-item .ti-ico svg{width:22px;height:22px}
+.trust-item b{display:block;font-size:15.5px;font-weight:600;color:var(--text);line-height:1.3}
+.trust-item small{font-size:13px;color:var(--muted)}
+
+/* CATEGORIES bento */
+.cats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.cat{position:relative;border:1px solid var(--line);border-radius:var(--radius);padding:30px;background:linear-gradient(165deg,var(--bg-card-2),var(--bg-card));overflow:hidden;transition:transform .5s var(--ease),border-color .4s,box-shadow .4s;min-height:230px;display:flex;flex-direction:column;justify-content:space-between}
+.cat:hover{transform:translateY(-6px);border-color:var(--line);box-shadow:var(--shadow-soft)}
+.cat::after{content:"";position:absolute;top:-40%;right:-30%;width:240px;height:240px;background:radial-gradient(circle,rgba(201,162,75,.14),transparent 65%);opacity:0;transition:opacity .5s}
+.cat:hover::after{opacity:1}
+.cat .cat-ico{width:54px;height:54px;border-radius:15px;background:var(--gold-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-1);margin-bottom:auto}
+.cat .cat-ico svg{width:26px;height:26px}
+.cat h3{margin:24px 0 8px;font-weight:600;position:relative;z-index:2}
+.cat p{font-size:14px;color:var(--muted);position:relative;z-index:2}
+.cat-num{position:absolute;top:24px;right:28px;font-size:13px;font-weight:600;color:var(--gold-3);letter-spacing:.1em}
+.cat.big{grid-column:span 3}
+.cat.med{grid-column:span 3}
+.cat.sm{grid-column:span 2}
+.cat.feature{grid-column:span 3;background:linear-gradient(150deg,rgba(201,162,75,.14),var(--bg-card));border-color:var(--line)}
+.cat.feature h3{font-size:1.6rem}
+.cats-cta{display:flex;justify-content:center;margin-top:44px}
+
+/* COUNTRIES */
+.countries-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px}
+.country{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-card);transition:transform .5s var(--ease),box-shadow .4s,border-color .4s;display:flex;flex-direction:column}
+.country:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
+.country-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.country-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.78) contrast(1.05);transition:transform .7s var(--ease)}
+.country:hover .country-media img{transform:scale(1.06)}
+.country-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,11,13,.85))}
+.country-flag{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;align-items:center;gap:10px}
+.country-flag .fl{width:30px;height:21px;border-radius:4px;border:1px solid rgba(255,255,255,.2);overflow:hidden;display:flex;flex-direction:column}
+.country-flag b{font-size:18px;font-weight:600;color:#fff}
+.country-body{padding:26px;display:flex;flex-direction:column;gap:16px;flex:1}
+.country-body p{font-size:14.5px;color:var(--beige)}
+.country-body .c-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;color:var(--gold-1);font-weight:500;font-size:15px}
+.country-body .c-link svg{width:16px;height:16px;transition:transform .3s}
+.country:hover .c-link svg{transform:translateX(4px)}
+.countries-cta{display:flex;justify-content:center;margin-top:44px}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative}
+.steps::before{content:"";position:absolute;top:38px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);z-index:0}
+.step{position:relative;z-index:2;text-align:center;padding:0 6px}
+.step-num{width:76px;height:76px;margin:0 auto 20px;border-radius:50%;background:linear-gradient(165deg,var(--bg-card-2),var(--bg-card));border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:600;color:var(--gold-1);box-shadow:var(--shadow-soft);transition:transform .5s var(--ease),border-color .4s}
+.step:hover .step-num{transform:translateY(-5px);border-color:var(--gold-2)}
+.step h3{font-size:17px;font-weight:600;margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+/* EXTENDED ANKETA BAND */
+.anketa-band{position:relative;z-index:2}
+.anketa-card{border:1px solid var(--line);border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(201,162,75,.12),var(--bg-card) 60%);padding:54px;display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center;overflow:hidden;position:relative}
+.anketa-card::after{content:"";position:absolute;top:-30%;right:-5%;width:360px;height:360px;background:radial-gradient(circle,rgba(201,162,75,.18),transparent 65%);pointer-events:none}
+.anketa-card h2{margin-bottom:14px}
+.anketa-card p{color:var(--beige);max-width:520px}
+.anketa-card .ak-actions{display:flex;justify-content:flex-end;position:relative;z-index:2}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:1px solid var(--line-soft)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;text-align:left;font-size:17px;font-weight:500;color:var(--text);transition:color .3s}
+.faq-q:hover{color:var(--gold-1)}
+.faq-icon{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-1);position:relative;transition:background .3s,transform .4s var(--ease)}
+.faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--gold-1);border-radius:2px;transition:transform .35s var(--ease)}
+.faq-icon::before{width:13px;height:2px}
+.faq-icon::after{width:2px;height:13px}
+.faq-item.open .faq-icon{background:var(--gold-soft)}
+.faq-item.open .faq-icon::after{transform:scaleY(0)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a-inner{padding:0 0 24px;color:var(--beige);font-size:15px;max-width:90%}
+
+/* FINAL CTA */
+.final-cta{position:relative;z-index:2}
+/* premium espresso closing band */
+.final-card{text-align:center;border:1px solid rgba(201,162,75,.28);border-radius:var(--radius-lg);
+  background:
+    radial-gradient(125% 95% at 50% -12%,rgba(246,221,155,.20),rgba(201,162,75,.06) 32%,transparent 58%),
+    radial-gradient(70% 60% at 8% 118%,rgba(201,162,75,.12),transparent 60%),
+    radial-gradient(70% 60% at 92% 118%,rgba(201,162,75,.10),transparent 60%),
+    linear-gradient(168deg,#191309 0%,#120f0c 42%,#0b0c10 100%);
+  padding:88px 40px;overflow:hidden;position:relative;
+  box-shadow:var(--shadow-card),inset 0 1px 0 rgba(246,221,155,.14),inset 0 0 60px rgba(0,0,0,.45)}
+/* gold hairline along the top edge */
+.final-card::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:62%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-1),transparent);opacity:.85;pointer-events:none}
+/* soft floor glow / vignette to add depth */
+.final-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 50% 128%,rgba(201,162,75,.16),transparent 52%),radial-gradient(140% 120% at 50% 50%,transparent 62%,rgba(0,0,0,.5))}
+.final-card .eyebrow{background:rgba(201,162,75,.16);border-color:var(--dark-line);color:var(--gold-bright)}
+.final-card h2{margin-bottom:16px;position:relative;z-index:2;color:var(--on-dark)}
+.final-card p{max-width:560px;margin:0 auto 32px;color:var(--on-dark-mute);position:relative;z-index:2}
+.final-card .fc-actions{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.final-card .btn-ghost{background:transparent;color:var(--gold-bright);border-color:var(--dark-line)}
+
+/* FOOTER — dark espresso */
+.footer{background:var(--dark);position:relative;z-index:2;padding:80px 0 32px;color:var(--on-dark)}
+.footer .brand-name{color:var(--gold-bright);-webkit-text-fill-color:initial;background:none}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:48px}
+.footer-brand .brand{margin-bottom:18px}
+.footer-brand p{font-size:14px;color:var(--on-dark-mute);max-width:320px}
+.footer-col h4{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);margin-bottom:20px}
+.footer-col a{display:block;font-size:14.5px;color:var(--on-dark-mute);padding:7px 0;transition:color .3s}
+.footer-col a:hover{color:var(--gold-bright)}
+.foot-contact a{display:flex;align-items:center;gap:10px}
+.foot-contact svg{width:17px;height:17px;color:var(--gold-2);flex:none}
+.foot-map{margin-top:14px;border:1px solid var(--dark-line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03);padding:16px;display:flex;align-items:center;gap:12px}
+.foot-map svg{width:34px;height:34px;color:var(--gold-2);flex:none}
+.foot-map small{font-size:12.5px;color:var(--on-dark-mute)}
+.footer-bottom{border-top:1px solid var(--dark-line);padding-top:26px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-bottom p{font-size:13px;color:var(--on-dark-mute)}
+.footer-bottom .fb-links{display:flex;gap:20px}
+.footer-bottom .fb-links a{font-size:13px;color:var(--on-dark-mute)}
+.footer-bottom .fb-links a:hover{color:var(--gold-bright)}
+
+/* MODAL / POPUP */
+.modal-overlay{position:fixed;inset:0;z-index:120;background:rgba(5,6,8,.8);backdrop-filter:blur(8px);display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;overflow-y:auto}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal{width:100%;max-width:620px;background:linear-gradient(180deg,var(--bg-card-2),var(--bg-card));border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:38px;transform:translateY(24px) scale(.98);transition:transform .45s var(--ease);position:relative;margin:auto}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.modal-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:12px;border:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;color:var(--beige);transition:all .3s}
+.modal-close:hover{border-color:var(--gold-2);color:var(--gold-1);background:var(--gold-soft)}
+.modal-close svg{width:18px;height:18px}
+.modal-head{margin-bottom:26px;max-width:90%}
+.modal-head .eyebrow{margin-bottom:14px}
+.modal-head h3{font-size:24px;font-weight:600;margin-bottom:8px}
+.modal-head p{font-size:14px;color:var(--muted)}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.modal-grid .full{grid-column:1/-1}
+
+/* doc modal */
+.doc-modal{max-width:680px}
+.doc-modal .doc-body{max-height:60vh;overflow-y:auto;padding-right:8px;color:var(--beige);font-size:14.5px;line-height:1.7}
+.doc-modal .doc-body h4{color:var(--gold-1);margin:20px 0 8px;font-size:16px}
+.doc-modal .doc-body p{margin-bottom:12px}
+
+/* mobile sticky CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(10,11,13,.92);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:none;gap:10px}
+.sticky-cta .btn{flex:1}
+.sticky-cta .scta-msg{flex:none;width:54px;border:1px solid var(--line);border-radius:100px;display:flex;align-items:center;justify-content:center;color:var(--gold-1)}
+
+/* desktop floating widget */
+.float-widget{position:fixed;right:26px;bottom:26px;z-index:80;display:flex;align-items:center;gap:12px;padding:13px 22px 13px 16px;border-radius:100px;background:var(--gold-grad);color:#0a0b0d;font-weight:600;font-size:15px;box-shadow:0 16px 40px rgba(201,162,75,.35);transition:transform .35s var(--ease),box-shadow .35s}
+.float-widget:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 22px 50px rgba(201,162,75,.45)}
+.float-widget .fw-ico{width:38px;height:38px;border-radius:50%;background:rgba(10,11,13,.16);display:flex;align-items:center;justify-content:center}
+.float-widget .fw-ico svg{width:20px;height:20px}
+.float-widget .fw-pulse{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#54d18b;border:2px solid var(--bg)}
+
+/* toast */
+.toast{position:fixed;top:90px;left:50%;transform:translateX(-50%) translateY(-20px);z-index:130;background:var(--bg-card-2);border:1px solid var(--line);border-radius:14px;padding:16px 22px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow-card);opacity:0;visibility:hidden;transition:all .4s var(--ease);max-width:90vw}
+.toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.toast.success{border-color:var(--line)}
+.toast.error{border-color:rgba(224,107,94,.4)}
+.toast svg{width:22px;height:22px;flex:none}
+.toast.success svg{color:var(--gold-1)}
+.toast.error svg{color:#e89a90}
+.toast span{font-size:14px;color:var(--text)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ===== REWORKED: Recurify-style components ===== */
+/* hero bg photo */
+.hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-photo img{width:100%;height:100%;object-fit:cover;opacity:.16;filter:grayscale(.5) contrast(1.05)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 28% 26%,transparent,var(--bg) 70%),linear-gradient(180deg,var(--bg) 0%,transparent 22% 55%,var(--bg) 100%)}
+.hero .container{position:relative;z-index:2}
+/* hero stat cards */
+.hero-stats{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:150px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(165deg,var(--bg-card-2),var(--bg-card));padding:20px 22px;position:relative;overflow:hidden}
+.stat-card .num{font-size:2rem;font-weight:700;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .lbl{display:block;margin-top:8px;font-size:13px;color:var(--beige);line-height:1.4}
+
+/* partner / trust marquee */
+.logos{position:relative;z-index:2;padding:34px 0 36px;overflow:hidden;background:linear-gradient(180deg,rgba(13,15,19,.55),rgba(10,11,13,.85));backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.logos::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,75,.75),transparent)}
+.logos::after{content:"";position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:640px;height:160px;background:radial-gradient(ellipse at center,rgba(201,162,75,.16),transparent 70%);pointer-events:none;filter:blur(6px)}
+.logos-label{position:relative;display:flex;align-items:center;justify-content:center;gap:20px;text-align:center;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2);margin-bottom:28px;text-shadow:0 0 18px rgba(201,162,75,.28)}
+.logos-label::before,.logos-label::after{content:"";flex:none;height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold-2))}
+.logos-label::after{background:linear-gradient(90deg,var(--gold-2),transparent)}
+.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;gap:18px;width:max-content;animation:scrollx 34s linear infinite}
+.logos:hover .marquee-track{animation-play-state:paused}
+.m-item{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.02);font-size:15px;font-weight:500;color:var(--beige);white-space:nowrap}
+.m-item svg{width:18px;height:18px;color:var(--gold-2);flex:none}
+@keyframes scrollx{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* WHY block (image + floating stat card + 2x2 checklist) */
+.why-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}
+.why-media{position:relative}
+.why-media .ph{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-card);aspect-ratio:4/4.5}
+.why-media .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.85) contrast(1.05)}
+.why-media .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,11,13,.6));pointer-events:none}
+/* floating stat card */
+.stat-float{position:absolute;left:-24px;bottom:30px;width:228px;max-width:calc(100% - 36px);background:rgba(16,18,23,.82);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-card);overflow:hidden}
+.stat-float::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.stat-float .sf-ic{display:flex;width:42px;height:42px;border-radius:12px;background:var(--gold-soft);border:1px solid var(--line);align-items:center;justify-content:center;color:var(--gold-1);margin-bottom:16px}
+.stat-float .sf-ic svg{width:21px;height:21px}
+.stat-float .sf-num{display:block;font-size:2.7rem;font-weight:700;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-float .sf-t{display:block;margin-top:9px;font-size:14.5px;font-weight:600;color:var(--text)}
+.stat-float .sf-s{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.45}
+.why-body{display:flex;flex-direction:column;align-items:flex-start}
+.why-body h2{margin-bottom:16px}
+.why-body .lead{margin:0 0 30px}
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:34px;width:100%}
+.check-item{display:flex;align-items:center;gap:12px}
+.check-item .ck{flex:none;width:28px;height:28px;border-radius:50%;background:var(--gold-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-1)}
+.check-item .ck svg{width:14px;height:14px}
+.check-item b{font-size:14.5px;font-weight:500;color:var(--text);line-height:1.35}
+
+/* shared section header row (title left, CTA right) */
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:46px}
+.head-row .hr-text{max-width:640px}
+.head-row .hr-text h2{margin-bottom:14px}
+.head-row .hr-cta{flex:none}
+#categories .hr-text{max-width:none}
+#categories .hr-text h2,#categories .hr-text .lead{white-space:nowrap}
+
+/* CATEGORIES — horizontal scroll of image cards */
+.cats-scroll{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:18px 4px 24px;scrollbar-width:thin;scrollbar-color:var(--gold-2) rgba(255,255,255,.06)}
+.cats-scroll::-webkit-scrollbar{height:6px}
+.cats-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:100px}
+.cats-scroll::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-3),var(--gold-2));border-radius:100px}
+.cats-scroll::-webkit-scrollbar-thumb:hover{background:var(--gold-2)}
+.cat-card{flex:0 0 380px;scroll-snap-align:start;aspect-ratio:1/1;position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;transition:transform .5s var(--ease),box-shadow .45s var(--ease),border-color .4s}
+.cat-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card);border-color:var(--gold-2)}
+.cat-card .cc-img{position:absolute;inset:0;z-index:-2}
+.cat-card .cc-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.12) brightness(.74) contrast(1.04);transition:transform .8s var(--ease),filter .5s var(--ease)}
+.cat-card:hover .cc-img img{transform:scale(1.07);filter:grayscale(0) brightness(.86) contrast(1.05)}
+.cat-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,11,13,.12) 0%,rgba(10,11,13,.5) 52%,rgba(10,11,13,.93) 100%);transition:opacity .5s var(--ease)}
+.cat-card .cc-body{padding:26px}
+.cat-card .cc-ico{width:50px;height:50px;border-radius:14px;background:rgba(201,162,75,.22);backdrop-filter:blur(6px);border:1px solid rgba(201,162,75,.35);display:flex;align-items:center;justify-content:center;color:var(--gold-1);margin-bottom:auto}
+.cat-card .cc-ico svg{width:25px;height:25px}
+.cat-card .cc-num{position:absolute;top:22px;right:24px;z-index:2;font-size:13px;font-weight:600;color:var(--gold-1);letter-spacing:.08em;opacity:.85}
+.cat-card h3{color:#fff;font-weight:600;margin:18px 0 8px}
+.cat-card p{font-size:14px;color:rgba(244,239,228,.78)}
+
+/* COUNTRIES — split-cards (Recurify feature pattern) */
+.zz{display:flex;flex-direction:column;gap:28px}
+.zz-row{display:grid;grid-template-columns:1.02fr 1fr;align-items:stretch;background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);transition:transform .5s var(--ease),box-shadow .4s}
+.zz-row:hover{transform:translateY(-4px);box-shadow:var(--shadow-card)}
+.zz-row.rev .zz-media{order:2}
+.zz-media{position:relative;min-height:330px;overflow:hidden}
+.zz-media .ph{position:absolute;inset:0}
+.zz-media .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.18) brightness(.96) contrast(1.03);transition:transform .7s var(--ease)}
+.zz-row:hover .zz-media .ph img{transform:scale(1.05)}
+.zz-flag{position:absolute;left:22px;top:22px;z-index:2;display:flex;align-items:center;gap:10px;background:rgba(26,22,16,.72);backdrop-filter:blur(8px);border:1px solid rgba(240,210,138,.35);border-radius:100px;padding:9px 16px 9px 11px}
+.zz-flag .fl{width:28px;height:20px;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.25)}
+.zz-flag b{font-size:15px;font-weight:600;color:#fff}
+.zz-body{padding:46px;display:flex;flex-direction:column;justify-content:center;background:var(--bg-card-2)}
+.zz-body .eyebrow{margin-bottom:16px;align-self:flex-start}
+.zz-body h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:600;margin-bottom:12px}
+.zz-body .lead{margin-bottom:22px}
+.zz-tags{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-bottom:28px}
+.zz-tags span{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--text);font-weight:500}
+.zz-tags span svg{width:20px;height:20px;flex:none;padding:3px;border-radius:50%;background:var(--gold-soft);color:var(--gold-3);box-sizing:border-box}
+
+/* HOW — Recurify "work process": stacking sticky cards + circle rail + sticky image */
+.how-head{max-width:680px;margin:0 0 50px}
+.how-head h2{margin-bottom:14px}
+.wp-block{display:grid;grid-template-columns:minmax(0,1.04fr) 78px minmax(0,.96fr);gap:36px;align-items:start}
+/* left: stacking cards */
+.wp-cards{display:flex;flex-direction:column;gap:30px}
+.wp-card{position:sticky;top:118px;background:linear-gradient(165deg,var(--bg-card-2),var(--bg-card));border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 30px 32px;box-shadow:var(--shadow-card);overflow:hidden;transition:transform .55s var(--ease),border-color .4s}
+.wp-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.wp-card-title{color:var(--text);font-size:22px;font-weight:600;letter-spacing:-.01em}
+.wp-card-sum{margin-top:46px;font-size:15px;color:var(--beige);line-height:1.65}
+.wp-card-no{display:none}
+/* slight rest tilt on alternating cards (Recurify motif), straighten on hover */
+.wp-card:nth-child(even){transform:rotate(-1.5deg)}
+.wp-card:nth-child(even):hover{transform:rotate(0)}
+.wp-card:nth-child(odd):hover{transform:translateY(-2px)}
+.wp-card:hover{border-color:var(--gold-2)}
+/* center: numbered circle rail */
+.wp-rail{position:sticky;top:118px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:64px;height:636px;max-height:calc(100dvh - 160px)}
+.wp-line{position:absolute;top:39px;bottom:39px;left:50%;transform:translateX(-50%);width:1px;background:var(--line);z-index:0}
+.wp-circle{position:relative;z-index:2;flex:none;width:78px;height:78px;border-radius:50%;background:linear-gradient(165deg,var(--bg-card-2),var(--bg-card));border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:600;color:var(--gold-2);box-shadow:var(--shadow-soft);transition:transform .45s var(--ease),background .45s,color .45s,box-shadow .45s,border-color .45s}
+.wp-circle.active{background:var(--gold-grad);color:#0a0b0d;border-color:transparent;transform:scale(1.07);box-shadow:0 16px 36px rgba(201,162,75,.5)}
+/* right: sticky image with floating activity card */
+.wp-image{position:sticky;top:118px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-card);aspect-ratio:4/4.4}
+.wp-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(.18) brightness(.84) contrast(1.04)}
+.wp-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,13,.08) 0%,rgba(10,11,13,.28) 45%,rgba(10,11,13,.78) 100%);pointer-events:none}
+.wp-feed{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;background:rgba(16,18,23,.82);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-card)}
+.wp-feed::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2),transparent)}
+.wp-feed-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.wp-feed-head b{font-size:14.5px;font-weight:600;color:var(--text)}
+.wp-feed-head .wp-feed-tag{font-size:11.5px;color:var(--muted);border:1px solid var(--line-soft);border-radius:100px;padding:3px 10px}
+.wp-feed-row{display:flex;align-items:center;gap:11px;padding:7px 0}
+.wp-feed-row+.wp-feed-row{border-top:1px solid var(--line-soft)}
+.wp-feed-av{flex:none;width:30px;height:30px;border-radius:50%;background:var(--gold-soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--gold-1)}
+.wp-feed-meta{flex:1;min-width:0}
+.wp-feed-meta b{display:block;font-size:13px;font-weight:600;color:var(--text);line-height:1.2}
+.wp-feed-meta small{font-size:11px;color:var(--muted)}
+.wp-feed-state{flex:none;font-size:11px;font-weight:500;color:var(--gold-1);background:var(--gold-soft);border:1px solid var(--line);border-radius:100px;padding:4px 11px}
+
+/* responsive */
+@media (max-width:1280px){
+  :root{--gutter:56px}
+}
+@media (max-width:1080px){
+  :root{--gutter:40px}
+  .cat-card{flex-basis:44%}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+}
+@media (max-width:991px){
+  .nav{display:none}
+  .header-actions .btn{display:none}
+  .burger{display:flex}
+  .brand{flex:0 1 auto;min-width:0}
+  .brand-logo{height:62px;max-width:100%}
+  .header-actions{flex:0 0 auto}
+  .footer-logo{height:124px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero{padding:130px 0 70px}
+  .hero .lead,.hero-badges{max-width:none}
+  .why-grid{display:flex;flex-direction:column;gap:16px}
+  .why-body{display:contents}
+  .why-body h2{order:1;margin-bottom:0}
+  .why-media{order:2;max-width:480px;width:100%;margin-inline:auto}
+  .why-body .lead{order:3;margin:0}
+  .why-body .check-grid{order:4;margin:0}
+  .why-body .btn{order:5}
+  .zz-row,.zz-row.rev{grid-template-columns:1fr;gap:28px}
+  .zz-row.rev .zz-media{order:0}
+  .zz{gap:16px}
+  .zz-row{position:sticky;top:88px}
+  .zz-body{padding:16px}
+  #countries .head-row .hr-cta{display:none}
+  .anketa-card{grid-template-columns:1fr;text-align:center;padding:40px 28px}
+  .anketa-card p{margin:0 auto 6px}
+  .anketa-card .ak-actions{justify-content:center}
+  .faq-grid{grid-template-columns:1fr;gap:24px}
+  .float-widget{display:none}
+  .head-row{flex-direction:column;align-items:flex-start;gap:22px}
+  #categories .hr-text h2,#categories .hr-text .lead{white-space:normal}
+  #categories .container{display:flex;flex-direction:column;gap:22px}
+  #categories .head-row{display:contents}
+  #categories .hr-text{order:1}
+  #categories .cats-scroll{order:2}
+  #categories .hr-cta{order:3;width:100%}
+  .cat-card{flex-basis:58%}
+  .wp-block{grid-template-columns:1fr;gap:32px}
+  .wp-rail{display:none}
+  .wp-image{position:relative;top:auto;order:-1;max-width:none;width:100%;margin-inline:auto;aspect-ratio:1/1}
+  .wp-cards{gap:18px}
+  .wp-card{position:relative;top:auto}
+  .wp-card:nth-child(even){transform:none}
+  .wp-card-no{display:flex;position:absolute;top:24px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--gold-grad);align-items:center;justify-content:center;font-size:18px;font-weight:600;color:#0a0b0d}
+  .wp-card-title{padding-right:54px}
+  .wp-card-sum{margin-top:16px}
+}
+@media (max-width:640px){
+  :root{--gutter:20px}
+  .brand-logo{height:52px}
+  .logos-label{letter-spacing:.13em;font-size:10.5px;gap:10px;line-height:1.5}
+  .logos-label::before,.logos-label::after{width:22px}
+  .header-inner{gap:10px}
+  .header-actions{gap:8px}
+  .lang-switch button{padding:5px 10px;font-size:12px}
+  .burger{width:42px;height:42px}
+  .section{padding:50px 0}
+  .btn{width:100%}
+  .sticky-cta .btn{flex:1}
+  .cat-card{flex-basis:84%}
+  .head-row .hr-cta{width:100%}
+  .hero-stats{flex-wrap:wrap;gap:12px}
+  .hero-stats .stat-card{flex:1 1 0;min-width:0;text-align:center}
+  .hero-stats .stat-card:nth-child(3){flex-basis:100%}
+  .check-grid{grid-template-columns:1fr}
+  .stat-float{left:14px;right:14px;bottom:14px;width:auto;max-width:none;padding:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .stat-float .sf-ic{margin-bottom:0}
+  .stat-float .sf-num{font-size:2.3rem}
+  .stat-float .sf-t{margin-top:0;flex:1 1 auto}
+  .stat-float .sf-s{flex:1 0 100%;margin-top:2px}
+  .why-body .btn{width:100%}
+  .wp-card{padding:24px 22px 26px}
+  .wp-card-title{font-size:19px}
+  .wp-card-no{top:20px;right:20px;width:42px;height:42px;font-size:16px}
+  .form-card{padding:26px 22px}
+  .modal{padding:30px 22px}
+  .modal-grid{grid-template-columns:1fr}
+  .modal-head{max-width:80%}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .footer-brand .brand{justify-content:center}
+  .footer-brand p{margin-inline:auto}
+  .foot-contact a{justify-content:center}
+  .footer-logo{height:124px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+  .final-card{padding:54px 24px}
+  .sticky-cta{display:flex}
+  .seg{grid-template-columns:1fr 1fr}
+  body{padding-bottom:74px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<!-- ================= PRELOADER ================= -->
+<div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Завантаження сайту">
+  <div class="pl-stage">
+    <div class="pl-logo-wrap">
+      <img class="pl-logo" src="assets/ABURWORK_logo_transparent.png" alt="ABURWORK" />
+      <span class="pl-shine"></span>
+      <span class="pl-orbit"><span class="pl-orbit-ring"></span><span class="pl-orbit-spin"><span class="pl-orbit-dot"></span></span></span>
+    </div>
+    <span class="pl-sub">Робота в Європі</span>
+    <span class="pl-line"></span>
+  </div>
+</div>
+
+<div class="bg-fx"></div>
+<div class="grain"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#hero" class="brand" aria-label="ABURWORK — Робота в Європі">
+      <img class="brand-logo" src="assets/ABURWORK_logo_transparent.png" alt="ABURWORK — Робота в Європі" />
+    </a>
+
+    <nav class="nav" aria-label="Головна навігація">
+      <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
+      <a href="#countries" data-i18n="nav_countries">Країни</a>
+      <a href="#how" data-i18n="nav_how">Як це працює</a>
+      <a href="#hero" data-i18n="nav_form">Анкета</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#footer" data-i18n="nav_contacts">Контакти</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Мова сайту">
+        <button data-lang="ua" class="active" type="button">UA</button>
+        <button data-lang="ru" type="button">RU</button>
+      </div>
+      <a href="#hero" class="btn btn-primary" data-scroll="hero"><span data-i18n="cta_get">Отримати вакансії</span></a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Мобільна навігація">
+    <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
+    <a href="#countries" data-i18n="nav_countries">Країни</a>
+    <a href="#how" data-i18n="nav_how">Як це працює</a>
+    <a href="#hero" data-i18n="nav_form">Анкета</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    <a href="#footer" data-i18n="nav_contacts">Контакти</a>
+  </nav>
+  <div class="mm-contact">
+    <div class="mm-phone">+380 97 680 29 42</div>
+    <div class="mm-msgs">
+      <a href="viber://chat?number=%2B380976802942"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.5 2 3 5.2 3 9.5c0 2.3 1.1 4.3 3 5.7v3.3l3-1.7c.6.1 1.3.2 2 .2h1c5.5 0 9-3.2 9-7.5S17.5 2 12 2z"/></svg>Viber</a>
+      <a href="https://t.me/+380976802942"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z"/></svg>Telegram</a>
+    </div>
+    <a href="#hero" class="btn btn-primary btn-block" data-scroll="hero"><span data-i18n="cta_get">Отримати вакансії</span></a>
+  </div>
+</div>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-photo"><img src="assets/DC36CACD-6C5D-4BCD-BA06-F6DFEADB8AF8.png" alt="" aria-hidden="true" /></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1 data-i18n-html="hero_h1">Робота в Європі <span class="gold-text wm">для українців</span></h1>
+        <p class="lead" data-i18n="hero_sub">Заповніть анкету — і ми надішлемо вам актуальні вакансії у Польщі, Німеччині та Нідерландах у Viber або Telegram.</p>
+        <div class="hero-cta">
+          <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <button class="btn btn-ghost btn-lg" data-open-modal><span data-i18n="cta_detailed">Заповнити детальну анкету</span></button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card"><span class="num">3</span><span class="lbl" data-i18n="stat_1">країни для роботи: Польща, Німеччина, Нідерланди</span></div>
+          <div class="stat-card"><span class="num">5+</span><span class="lbl" data-i18n="stat_2">напрямків вакансій від різних агенцій</span></div>
+          <div class="stat-card"><span class="num">17–65</span><span class="lbl" data-i18n="stat_3">вік кандидатів: чоловіки, жінки, пари</span></div>
+        </div>
+      </div>
+
+      <!-- short form -->
+      <div class="form-card" id="hero-form">
+        <div class="form-card-head">
+          <span class="badge-ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+          <h3 data-i18n="form_title">Отримати вакансії</h3>
+        </div>
+        <p class="fc-sub" data-i18n="form_subtitle">Залиште контакти — надішлемо актуальні вакансії за 1–2 дні.</p>
+
+        <form id="shortForm" novalidate>
+          <div class="field">
+            <label for="sf-name"><span data-i18n="lbl_name">Ім'я</span> <span class="req">*</span></label>
+            <input class="input" id="sf-name" name="name" type="text" autocomplete="given-name" data-i18n-ph="ph_name" placeholder="Ваше ім'я" />
+            <span class="err" data-i18n="err_name">Вкажіть ваше ім'я</span>
+          </div>
+          <div class="field">
+            <label for="sf-phone"><span data-i18n="lbl_phone">Номер телефону</span> <span class="req">*</span></label>
+            <input class="input" id="sf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" data-i18n-ph="ph_phone" placeholder="+380 __ ___ __ __" />
+            <span class="err" data-i18n="err_phone">Вкажіть коректний номер телефону</span>
+          </div>
+          <div class="field">
+            <label><span data-i18n="lbl_method">Спосіб зв'язку</span> <span class="req">*</span></label>
+            <div class="seg">
+              <div class="seg-opt">
+                <input type="radio" name="method" id="sf-viber" value="Viber" />
+                <label for="sf-viber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 3 5.2 3 9.5c0 2.3 1.1 4.3 3 5.7v3.3l3-1.7c.6.1 1.3.2 2 .2h1c5.5 0 9-3.2 9-7.5S17.5 2 12 2z"/></svg>Viber</label>
+              </div>
+              <div class="seg-opt">
+                <input type="radio" name="method" id="sf-tg" value="Telegram" />
+                <label for="sf-tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z"/></svg>Telegram</label>
+              </div>
+            </div>
+            <span class="err" data-i18n="err_method">Оберіть спосіб зв'язку</span>
+          </div>
+          <label class="consent" id="sf-consent-wrap">
+            <input type="checkbox" name="consent" id="sf-consent" />
+            <span data-i18n-html="consent_text">Я погоджуюсь з <a href="#" data-doc="privacy">обробкою персональних даних</a></span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block btn-lg"><span data-i18n="cta_get">Отримати вакансії</span></button>
+        </form>
+
+        <div class="form-state success" id="sf-success">
+          <div class="st-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h4 data-i18n="success_short_h">Дякуємо!</h4>
+          <p data-i18n="success_short_p">Ми отримали вашу заявку. Найближчим часом вам надішлють актуальні вакансії у Viber або Telegram.</p>
+        </div>
+        <div class="form-state error" id="sf-error">
+          <div class="st-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 17h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+          <h4 data-i18n="error_h">Помилка</h4>
+          <p data-i18n="error_p">Не вдалося надіслати заявку. Спробуйте ще раз або напишіть нам у Viber / Telegram: +380976802942.</p>
+          <button class="btn btn-ghost retry" type="button" data-retry="short"><span data-i18n="retry">Спробувати ще раз</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARTNER MARQUEE ================= -->
+<section class="logos">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6"/></svg><span data-i18n="m_1">Склади та фабрики</span></span>
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V9l8-5 8 5v11"/></svg><span data-i18n="m_2">Будівництво</span></span>
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16l-2-6H6z"/></svg><span data-i18n="m_3">Прибирання</span></span>
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v8a3 3 0 006 0V3M16 3v18"/></svg><span data-i18n="m_4">Кухня</span></span>
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c0-6 3-10 8-12-2 6-5 9-8 12zM12 22V8"/></svg><span data-i18n="m_5">Поля та теплиці</span></span>
+      <span class="m-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="m_6">Логістика</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M3 21h18M9 21v-6h6v6"/></svg><span data-i18n="m_1">Склади та фабрики</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V9l8-5 8 5v11"/></svg><span data-i18n="m_2">Будівництво</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16l-2-6H6z"/></svg><span data-i18n="m_3">Прибирання</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3v8a3 3 0 006 0V3M16 3v18"/></svg><span data-i18n="m_4">Кухня</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c0-6 3-10 8-12-2 6-5 9-8 12zM12 22V8"/></svg><span data-i18n="m_5">Поля та теплиці</span></span>
+      <span class="m-item" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="m_6">Логістика</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ABURWORK (image + checklist) ================= -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-media reveal">
+        <div class="ph"><img src="assets/CFF8CA24-A1DE-4032-8707-836D3811D2A6.png" alt="Кандидат отримує вакансії в Європі" loading="lazy" /></div>
+        <div class="stat-float">
+          <span class="sf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13M3 21h18M15 21V11l6-3v13M7 13h2M7 17h2"/></svg></span>
+          <span class="sf-num">100+</span>
+          <span class="sf-t" data-i18n="why_stat_t">актуальних вакансій</span>
+          <span class="sf-s" data-i18n="why_stat_s">у Польщі, Німеччині та Нідерландах</span>
+        </div>
+      </div>
+      <div class="why-body reveal">
+        <h2 data-i18n-html="why_title">Чому обирають <span class="gold-text">ABURWORK</span></h2>
+        <p class="lead" data-i18n="why_sub">Ми збираємо актуальні вакансії від різних агенцій і надсилаємо їх вам у Viber або Telegram — без зайвих кроків.</p>
+        <p class="lead" data-i18n="why_sub2">Ми працюємо лише з перевіреними агенціями та офіційними роботодавцями, тож ви отримуєте реальні пропозиції з прозорими умовами оплати та проживання. Наша команда супроводжує вас від першого повідомлення до виїзду: допоможемо обрати вакансію, підготувати документи й відповімо на всі запитання українською мовою.</p>
+        <div class="check-grid">
+          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_1_t">Перевірені агенції та роботодавці</b></div>
+          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_2_t">Актуальні вакансії у Європі</b></div>
+          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_3_t">Підтримка на кожному етапі</b></div>
+          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_4_t">Допомога з анкетою та документами</b></div>
+        </div>
+        <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="head-row reveal">
+      <div class="hr-text">
+        <h2 data-i18n="cat_title">Які вакансії можна отримати</h2>
+        <p class="lead" data-i18n="cat_sub">Великий вибір вакансій від різних агенцій у Польщі, Німеччині та Нідерландах.</p>
+      </div>
+      <button class="btn btn-primary hr-cta" data-open-modal><span data-i18n="cta_pick">Підібрати вакансію</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    </div>
+
+    <div class="cats-scroll reveal">
+      <article class="cat-card">
+        <div class="cc-img"><img src="assets/9236B0FB-1539-4444-8C9C-E66C4FA5E3B0.png" alt="Робота на складах, заводах і фабриках" loading="lazy" /></div>
+        <span class="cc-num">01</span>
+        <div class="cc-body">
+          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l6-4 6 4M3 21h18M15 21V11l6-3v13M7 13h2M7 17h2"/></svg></span>
+          <h3 data-i18n="cat_1_t">Склади, заводи, фабрики</h3>
+          <p data-i18n="cat_1_d">Робота на виробничих лініях, пакування, сортування та логістика на складах.</p>
+        </div>
+      </article>
+      <article class="cat-card">
+        <div class="cc-img"><img src="assets/394F5996-EAD8-469F-A184-EEAD912B2759.png" alt="Робота на будівництві" loading="lazy" /></div>
+        <span class="cc-num">02</span>
+        <div class="cc-body">
+          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-5h6v5"/></svg></span>
+          <h3 data-i18n="cat_2_t">Будівництво</h3>
+          <p data-i18n="cat_2_d">Загальнобудівельні роботи, оздоблення, монтаж та допоміжний персонал.</p>
+        </div>
+      </article>
+      <article class="cat-card">
+        <div class="cc-img"><img src="assets/C875EDA1-E2A0-4002-BD76-4FBACC2618DB.png" alt="Робота з прибирання" loading="lazy" /></div>
+        <span class="cc-num">03</span>
+        <div class="cc-body">
+          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 21v-7M18 21v-7M4 14h16l-2-6H6zM10 8V4h4v4"/></svg></span>
+          <h3 data-i18n="cat_3_t">Прибирання</h3>
+          <p data-i18n="cat_3_d">Клінінг приміщень, готелів, офісів та виробничих площ.</p>
+        </div>
+      </article>
+      <article class="cat-card">
+        <div class="cc-img"><img src="assets/064992EA-4D34-4F6A-B103-6FD4CBE131A9.png" alt="Робота на кухні" loading="lazy" /></div>
+        <span class="cc-num">04</span>
+        <div class="cc-body">
+          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3v8a3 3 0 006 0V3M8 3v6M16 3c-1.5 0-2 2-2 4s.5 4 2 4M16 3v18"/></svg></span>
+          <h3 data-i18n="cat_4_t">Робота на кухні</h3>
+          <p data-i18n="cat_4_d">Помічники кухаря, фасування, робота на харчових виробництвах.</p>
+        </div>
+      </article>
+      <article class="cat-card">
+        <div class="cc-img"><img src="assets/83BF4EB0-47F0-4C1C-969A-DAB169DDB90D.png" alt="Робота на полях та в теплицях" loading="lazy" /></div>
+        <span class="cc-num">05</span>
+        <div class="cc-body">
+          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c0-6 3-10 8-12-2 6-5 9-8 12zM12 22c0-6-3-10-8-12 2 6 5 9 8 12zM12 22V8"/></svg></span>
+          <h3 data-i18n="cat_5_t">Поля та теплиці</h3>
+          <p data-i18n="cat_5_d">Сезонна та постійна робота у сільському господарстві та теплицях.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COUNTRIES ================= -->
+<section class="section" id="countries">
+  <div class="container">
+    <div class="head-row reveal">
+      <div class="hr-text">
+        <h2 data-i18n="country_title">Країни, де є робота</h2>
+        <p class="lead" data-i18n="country_sub">Підбираємо вакансії у трьох європейських країнах залежно від вашого запиту.</p>
+      </div>
+      <a href="#hero-form" class="btn btn-ghost hr-cta" data-scroll="hero-form"><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+
+    <div class="zz">
+      <article class="zz-row reveal">
+        <div class="zz-media">
+          <div class="ph"><img src="https://picsum.photos/seed/poland-warsaw-city/900/680" alt="Польща — робота для українців" loading="lazy" /></div>
+          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#fff 50%,#dc143c 50%)"></span><b data-i18n="c_pl">Польща</b></div>
+        </div>
+        <div class="zz-body">
+          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_pl_eyebrow">Найближча країна</span></span>
+          <h3 data-i18n="c_pl">Польща</h3>
+          <p class="lead" data-i18n="c_pl_d">Вакансії на складах, заводах, фабриках, у теплицях, прибиранні та інших напрямках.</p>
+          <div class="zz-tags">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_5_t">Поля та теплиці</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_3_t">Прибирання</span></span>
+          </div>
+          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        </div>
+      </article>
+
+      <article class="zz-row rev reveal">
+        <div class="zz-media">
+          <div class="ph"><img src="https://picsum.photos/seed/germany-frankfurt-city/900/680" alt="Німеччина — робота для українців" loading="lazy" /></div>
+          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#111 33%,#dc143c 33% 66%,#ffce00 66%)"></span><b data-i18n="c_de">Німеччина</b></div>
+        </div>
+        <div class="zz-body">
+          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_de_eyebrow">Стабільна зайнятість</span></span>
+          <h3 data-i18n="c_de">Німеччина</h3>
+          <p class="lead" data-i18n="c_de_d">Робота для кандидатів, які хочуть отримати стабільну зайнятість у Європі.</p>
+          <div class="zz-tags">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_2_t">Будівництво</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_4_t">Робота на кухні</span></span>
+          </div>
+          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        </div>
+      </article>
+
+      <article class="zz-row reveal">
+        <div class="zz-media">
+          <div class="ph"><img src="https://picsum.photos/seed/netherlands-rotterdam-city/900/680" alt="Нідерланди — робота для українців" loading="lazy" /></div>
+          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#ae1c28 33%,#fff 33% 66%,#21468b 66%)"></span><b data-i18n="c_nl">Нідерланди</b></div>
+        </div>
+        <div class="zz-body">
+          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_nl_eyebrow">Сезон та виробництва</span></span>
+          <h3 data-i18n="c_nl">Нідерланди</h3>
+          <p class="lead" data-i18n="c_nl_d">Варіанти роботи на полях, у теплицях, на складах та виробництвах.</p>
+          <div class="zz-tags">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_5_t">Поля та теплиці</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_4_t">Робота на кухні</span></span>
+          </div>
+          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="how-head reveal">
+      <h2 data-i18n="how_title">Як отримати вакансії</h2>
+      <p class="lead" data-i18n="how_sub">П'ять кроків від заявки до роботи в Європі.</p>
+    </div>
+
+    <div class="wp-block">
+      <div class="wp-cards">
+        <article class="wp-card reveal"><span class="wp-card-no">1</span><div class="wp-card-title" data-i18n="how_1_t">Залиште номер</div><p class="wp-card-sum" data-i18n="how_1_d">Вкажіть Viber або Telegram для зв'язку.</p></article>
+        <article class="wp-card reveal"><span class="wp-card-no">2</span><div class="wp-card-title" data-i18n="how_2_t">Заповніть анкету</div><p class="wp-card-sum" data-i18n="how_2_d">Коротку або детальну — як вам зручно.</p></article>
+        <article class="wp-card reveal"><span class="wp-card-no">3</span><div class="wp-card-title" data-i18n="how_3_t">Менеджер отримає заявку</div><p class="wp-card-sum" data-i18n="how_3_d">Ми опрацюємо ваші дані та запит.</p></article>
+        <article class="wp-card reveal"><span class="wp-card-no">4</span><div class="wp-card-title" data-i18n="how_4_t">Отримаєте вакансії</div><p class="wp-card-sum" data-i18n="how_4_d">Надішлемо актуальні варіанти у месенджер.</p></article>
+        <article class="wp-card reveal"><span class="wp-card-no">5</span><div class="wp-card-title" data-i18n="how_5_t">Оберете роботу</div><p class="wp-card-sum" data-i18n="how_5_d">Виберете відповідний варіант і поїдете.</p></article>
+      </div>
+
+      <div class="wp-rail" aria-hidden="true">
+        <span class="wp-line"></span>
+        <div class="wp-circle">1</div>
+        <div class="wp-circle">2</div>
+        <div class="wp-circle">3</div>
+        <div class="wp-circle">4</div>
+        <div class="wp-circle">5</div>
+      </div>
+
+      <div class="wp-image reveal">
+        <img src="assets/6B49919E-7557-4394-AAEB-99F2F664C027.png" alt="Працевлаштування в Європі з ABURWORK" loading="lazy" />
+        <div class="wp-feed">
+          <div class="wp-feed-head"><b data-i18n="how_feed_t">Останні заявки</b></div>
+          <div class="wp-feed-rows" id="wpFeedRows"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="section-head left reveal" style="margin-bottom:0">
+        <h2 data-i18n="faq_title">Відповіді на ваші питання</h2>
+        <p class="lead" data-i18n="faq_sub">Не знайшли відповідь? Напишіть нам у Viber або Telegram.</p>
+        <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form" style="margin-top:26px"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+      <div class="faq-list reveal" id="faqList">
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_1_q">Для кого підходять вакансії?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_1_a">Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_2_q">У яких країнах є робота?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_2_a">Ми підбираємо вакансії у Польщі, Німеччині та Нідерландах від різних агенцій.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_3_q">Чи можна їхати парою?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_3_a">Так, є окремі вакансії для пар. Вкажіть це в анкеті — і ми підберемо відповідні варіанти.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_4_q">Чи є робота без досвіду?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_4_a">Так, більшість напрямків — склади, теплиці, прибирання — не вимагають досвіду. Усьому навчають на місці.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_5_q">Як я отримаю вакансії?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_5_a">Після заповнення анкети менеджер надішле вам актуальні вакансії у Viber або Telegram — той, що ви оберете.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_6_q">Чи можна залишити тільки Telegram?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_6_a">Так. Оберіть зручний спосіб зв'язку — Viber або Telegram. Достатньо одного.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_7_q">Скільки часу займає підбір вакансій?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_7_a">Зазвичай ми надсилаємо перші варіанти протягом 1–2 днів після отримання заявки.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section final-cta">
+  <div class="container">
+    <div class="final-card reveal">
+      <h2 data-i18n="final_title">Хочете отримати актуальні вакансії?</h2>
+      <p data-i18n="final_sub">Залиште номер Viber або Telegram — і ми надішлемо вам варіанти роботи в Польщі, Німеччині та Нідерландах.</p>
+      <div class="fc-actions">
+        <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <button class="btn btn-ghost btn-lg" data-open-modal><span data-i18n="cta_detailed">Заповнити детальну анкету</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <img class="brand-logo footer-logo" src="assets/ABURWORK_logo_transparent.png" alt="ABURWORK — Робота в Європі" />
+        </div>
+        <p data-i18n="foot_about">Сервіс підбору роботи в Європі для українців. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="foot_nav">Навігація</h4>
+        <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
+        <a href="#countries" data-i18n="nav_countries">Країни</a>
+        <a href="#how" data-i18n="nav_how">Як це працює</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      </div>
+      <div class="footer-col foot-contact">
+        <h4 data-i18n="nav_contacts">Контакти</h4>
+        <a href="tel:+380976802942"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>+380 97 680 29 42</a>
+        <a href="viber://chat?number=%2B380976802942"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 3 5.2 3 9.5c0 2.3 1.1 4.3 3 5.7v3.3l3-1.7c.6.1 1.3.2 2 .2h1c5.5 0 9-3.2 9-7.5S17.5 2 12 2z"/></svg>Viber</a>
+        <a href="https://t.me/+380976802942"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z"/></svg>Telegram</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="foot_docs">Документи</h4>
+        <a href="#" data-doc="privacy" data-i18n="doc_privacy">Політика конфіденційності</a>
+        <a href="#" data-doc="consent" data-i18n="doc_consent">Згода на обробку персональних даних</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="foot_rights">© 2026 ABURWORK. Усі права захищені.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= POPUP: DETAILED FORM ================= -->
+<div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+  <div class="modal">
+    <button class="modal-close" data-close-modal aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal-head">
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="modal_eyebrow">Детальна анкета</span></span>
+      <h3 id="detailTitle" data-i18n="modal_title">Заповніть детальну анкету</h3>
+      <p data-i18n="modal_sub">Так ми швидше підберемо вакансії під ваш запит.</p>
+    </div>
+
+    <form id="detailForm" novalidate>
+      <div class="modal-grid">
+        <div class="field">
+          <label for="df-name"><span data-i18n="lbl_name">Ім'я</span> <span class="req">*</span></label>
+          <input class="input" id="df-name" name="name" type="text" data-i18n-ph="ph_name" placeholder="Ваше ім'я" />
+          <span class="err" data-i18n="err_name">Вкажіть ваше ім'я</span>
+        </div>
+        <div class="field">
+          <label for="df-phone"><span data-i18n="lbl_phone">Телефон</span> <span class="req">*</span></label>
+          <input class="input" id="df-phone" name="phone" type="tel" inputmode="tel" data-i18n-ph="ph_phone" placeholder="+380 __ ___ __ __" />
+          <span class="err" data-i18n="err_phone">Вкажіть коректний номер телефону</span>
+        </div>
+        <div class="field full">
+          <label><span data-i18n="lbl_method">Спосіб зв'язку</span> <span class="req">*</span></label>
+          <div class="seg">
+            <div class="seg-opt"><input type="radio" name="method" id="df-viber" value="Viber" /><label for="df-viber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 3 5.2 3 9.5c0 2.3 1.1 4.3 3 5.7v3.3l3-1.7c.6.1 1.3.2 2 .2h1c5.5 0 9-3.2 9-7.5S17.5 2 12 2z"/></svg>Viber</label></div>
+            <div class="seg-opt"><input type="radio" name="method" id="df-tg" value="Telegram" /><label for="df-tg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z"/></svg>Telegram</label></div>
+          </div>
+          <span class="err" data-i18n="err_method">Оберіть спосіб зв'язку</span>
+        </div>
+        <div class="field">
+          <label for="df-age" data-i18n="lbl_age">Вік</label>
+          <input class="input" id="df-age" name="age" type="number" min="16" max="70" inputmode="numeric" data-i18n-ph="ph_age" placeholder="Напр. 34" />
+        </div>
+        <div class="field">
+          <label for="df-country-now" data-i18n="lbl_country_now">Країна перебування</label>
+          <input class="input" id="df-country-now" name="country_now" type="text" data-i18n-ph="ph_country_now" placeholder="Напр. Україна" />
+        </div>
+        <div class="field full">
+          <label for="df-country-work" data-i18n="lbl_country_work">Бажана країна роботи</label>
+          <select class="select" id="df-country-work" name="country_work">
+            <option value="" data-i18n="opt_choose">Оберіть варіант</option>
+            <option value="Польща" data-i18n="opt_pl">Польща</option>
+            <option value="Німеччина" data-i18n="opt_de">Німеччина</option>
+            <option value="Нідерланди" data-i18n="opt_nl">Нідерланди</option>
+            <option value="Розглядаю всі варіанти" data-i18n="opt_all">Розглядаю всі варіанти</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="df-exp" data-i18n="lbl_exp">Досвід роботи</label>
+          <input class="input" id="df-exp" name="experience" type="text" data-i18n-ph="ph_exp" placeholder="Напр. склад, будівництво" />
+        </div>
+        <div class="field">
+          <label for="df-ready" data-i18n="lbl_ready">Коли готові виїхати</label>
+          <input class="input" id="df-ready" name="ready" type="text" data-i18n-ph="ph_ready" placeholder="Напр. протягом місяця" />
+        </div>
+        <div class="field full">
+          <label for="df-salary" data-i18n="lbl_salary">Бажана зарплата</label>
+          <input class="input" id="df-salary" name="salary" type="text" data-i18n-ph="ph_salary" placeholder="Напр. від 1200 EUR" />
+        </div>
+        <div class="field full">
+          <label for="df-comment" data-i18n="lbl_comment">Коментар</label>
+          <textarea class="textarea" id="df-comment" name="comment" data-i18n-ph="ph_comment" placeholder="Додаткова інформація або побажання"></textarea>
+        </div>
+      </div>
+      <label class="consent" id="df-consent-wrap">
+        <input type="checkbox" name="consent" id="df-consent" />
+        <span data-i18n-html="consent_text">Я погоджуюсь з <a href="#" data-doc="privacy">обробкою персональних даних</a></span>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block btn-lg"><span data-i18n="cta_send">Надіслати анкету</span></button>
+    </form>
+
+    <div class="form-state success" id="df-success">
+      <div class="st-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h4 data-i18n="success_long_h">Анкету надіслано</h4>
+      <p data-i18n="success_long_p">Ми переглянемо ваші дані та підберемо вакансії, які найбільше підходять під ваш запит.</p>
+    </div>
+    <div class="form-state error" id="df-error">
+      <div class="st-ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 17h.01M10.3 3.9 2 18a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+      <h4 data-i18n="error_h">Помилка</h4>
+      <p data-i18n="error_p">Не вдалося надіслати заявку. Спробуйте ще раз або напишіть нам у Viber / Telegram: +380976802942.</p>
+      <button class="btn btn-ghost retry" type="button" data-retry="detail"><span data-i18n="retry">Спробувати ще раз</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= DOC MODAL ================= -->
+<div class="modal-overlay" id="docModal" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+  <div class="modal doc-modal">
+    <button class="modal-close" data-close-modal aria-label="Закрити"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div class="modal-head"><h3 id="docTitle">—</h3></div>
+    <div class="doc-body" id="docBody"></div>
+  </div>
+</div>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg class="t-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastMsg"></span>
+</div>
+
+<!-- ================= MOBILE STICKY CTA ================= -->
+<div class="sticky-cta">
+  <a href="#hero-form" class="btn btn-primary" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span></a>
+  <a href="https://t.me/+380976802942" class="scta-msg" aria-label="Telegram"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 4 3 11l5 2 2 6 3-4 5 4 3-15z"/></svg></a>
+</div>
+
+<!-- ================= DESKTOP FLOATING WIDGET ================= -->
+<button class="float-widget" data-open-modal aria-label="Заповнити анкету">
+  <span class="fw-pulse"></span>
+  <span class="fw-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+  <span data-i18n="cta_widget">Заповнити анкету</span>
+</button>
+
+<script>
+/* ============================================================
+   ABURWORK — landing logic
+   ============================================================ */
+
+/* ----- 0. PRELOADER (brand intro, smooth fade-out on load) ----- */
+(function(){
+  var pl = document.getElementById("preloader");
+  if(!pl) return;
+  var MIN_SHOW = 1500;   // keep the intro on screen at least this long
+  var FAILSAFE = 6000;   // never block the page longer than this
+  var started = Date.now();
+  var done = false;
+
+  document.body.classList.add("no-scroll"); // lock scroll while intro plays
+
+  function dismiss(){
+    if(done) return;
+    done = true;
+    document.body.classList.remove("no-scroll");
+    pl.classList.add("loaded");
+    var remove = function(){ if(pl && pl.parentNode){ pl.parentNode.removeChild(pl); } };
+    pl.addEventListener("transitionend", function(e){
+      if(e.target === pl && e.propertyName === "opacity") remove();
+    });
+    setTimeout(remove, 1400); // fallback removal if transitionend doesn't fire
+  }
+
+  function whenReady(){
+    var wait = Math.max(0, MIN_SHOW - (Date.now() - started));
+    setTimeout(dismiss, wait);
+  }
+
+  if(document.readyState === "complete") whenReady();
+  else window.addEventListener("load", whenReady);
+
+  setTimeout(dismiss, FAILSAFE); // safety net
+})();
+
+/* ----- 1. TELEGRAM CONFIG ----- */
+/* Вставте сюди дані вашого Telegram-бота (див. інструкцію під кодом). */
+const TELEGRAM_BOT_TOKEN = ""; // напр. "7123456789:AAFh...your_token..."
+const TELEGRAM_CHAT_ID   = ""; // напр. "123456789" (ваш chat_id або id групи)
+
+/* ----- 2. TRANSLATIONS ----- */
+const translations = {
+  ua: {
+    nav_jobs:"Вакансії", nav_countries:"Країни", nav_how:"Як це працює", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакти",
+    cta_get:"Отримати вакансії", cta_detailed:"Заповнити детальну анкету", cta_pick:"Підібрати вакансію", cta_send:"Надіслати анкету", cta_widget:"Заповнити анкету", retry:"Спробувати ще раз",
+    stat_1:"країни для роботи: Польща, Німеччина, Нідерланди", stat_2:"напрямків вакансій від різних агенцій", stat_3:"вік кандидатів: чоловіки, жінки, пари",
+    logos_label:"Працюємо з перевіреними агенціями та роботодавцями в Європі",
+    m_1:"Склади та фабрики", m_2:"Будівництво", m_3:"Прибирання", m_4:"Кухня", m_5:"Поля та теплиці", m_6:"Логістика",
+    why_eyebrow:"Чому ABURWORK", why_title:"Чому обирають <span class=\"gold-text\">ABURWORK</span>", why_sub:"Ми збираємо актуальні вакансії від перевірених агенцій і супроводжуємо вас на кожному етапі — від анкети до виїзду.", why_sub2:"Ми працюємо лише з перевіреними агенціями та офіційними роботодавцями, тож ви отримуєте реальні пропозиції з прозорими умовами оплати та проживання. Наша команда супроводжує вас від першого повідомлення до виїзду: допоможемо обрати вакансію, підготувати документи й відповімо на всі запитання українською мовою.",
+    why_1_t:"Перевірені агенції та роботодавці",
+    why_2_t:"Актуальні вакансії у Європі",
+    why_3_t:"Підтримка на кожному етапі",
+    why_4_t:"Допомога з анкетою та документами",
+    why_stat_t:"актуальних вакансій", why_stat_s:"у Польщі, Німеччині та Нідерландах",
+    c_pl_eyebrow:"Найближча країна", c_de_eyebrow:"Стабільна зайнятість", c_nl_eyebrow:"Сезон та виробництва",
+    how_n1:"КРОК 01", how_n2:"КРОК 02", how_n3:"КРОК 03", how_n4:"КРОК 04", how_n5:"КРОК 05",
+    hero_eyebrow:"Підбір роботи в Європі",
+    hero_h1:"Робота в Європі <span class='gold-text wm'>для українців</span>",
+    hero_sub:"Заповніть анкету — і ми надішлемо вам актуальні вакансії у Польщі, Німеччині та Нідерландах у Viber або Telegram.",
+    badge_pl:"Польща", badge_de:"Німеччина", badge_nl:"Нідерланди", badge_who:"Чоловіки, жінки, пари", badge_age:"Вік 17–65",
+    form_title:"Отримати вакансії", form_subtitle:"Залиште контакти — надішлемо актуальні вакансії за 1–2 дні.",
+    lbl_name:"Ім'я", lbl_phone:"Номер телефону", lbl_method:"Спосіб зв'язку",
+    ph_name:"Ваше ім'я", ph_phone:"+380 __ ___ __ __",
+    err_name:"Вкажіть ваше ім'я", err_phone:"Вкажіть коректний номер телефону", err_method:"Оберіть спосіб зв'язку",
+    consent_text:"Я погоджуюсь з <a href='#' data-doc='privacy'>обробкою персональних даних</a>",
+    success_short_h:"Дякуємо!", success_short_p:"Ми отримали вашу заявку. Найближчим часом вам надішлють актуальні вакансії у Viber або Telegram.",
+    error_h:"Помилка", error_p:"Не вдалося надіслати заявку. Спробуйте ще раз або напишіть нам у Viber / Telegram: +380976802942.",
+    trust_1_t:"Вакансії від різних агенцій", trust_1_s:"Перевірені роботодавці",
+    trust_2_t:"Польща, Німеччина, Нідерланди", trust_2_s:"3 напрямки роботи",
+    trust_3_t:"Для чоловіків, жінок і пар", trust_3_s:"Без обмежень",
+    trust_4_t:"Кандидати від 17 до 65 років", trust_4_s:"Широкий діапазон",
+    trust_5_t:"Зв'язок через Viber або Telegram", trust_5_s:"Швидка відповідь",
+    trust_6_t:"Великий вибір напрямків", trust_6_s:"5+ категорій роботи",
+    cat_eyebrow:"Напрямки роботи", cat_title:"Які вакансії можна отримати", cat_sub:"Великий вибір вакансій від різних агенцій у Польщі, Німеччині та Нідерландах.",
+    cat_1_t:"Склади, заводи, фабрики", cat_1_d:"Робота на виробничих лініях, пакування, сортування та логістика на складах.",
+    cat_2_t:"Будівництво", cat_2_d:"Загальнобудівельні роботи, оздоблення, монтаж та допоміжний персонал.",
+    cat_3_t:"Прибирання", cat_3_d:"Клінінг приміщень, готелів, офісів та виробничих площ.",
+    cat_4_t:"Робота на кухні", cat_4_d:"Помічники кухаря, фасування, робота на харчових виробництвах.",
+    cat_5_t:"Поля та теплиці", cat_5_d:"Сезонна та постійна робота у сільському господарстві та теплицях.",
+    country_eyebrow:"Географія вакансій", country_title:"Країни, де є робота", country_sub:"Підбираємо вакансії у трьох європейських країнах залежно від вашого запиту.",
+    c_pl:"Польща", c_de:"Німеччина", c_nl:"Нідерланди",
+    c_pl_d:"Вакансії на складах, заводах, фабриках, у теплицях, прибиранні та інших напрямках.",
+    c_de_d:"Робота для кандидатів, які хочуть отримати стабільну зайнятість у Європі.",
+    c_nl_d:"Варіанти роботи на полях, у теплицях, на складах та виробництвах.",
+    c_link:"Хочу отримати варіанти",
+    how_eyebrow:"Простий процес", how_title:"Як отримати вакансії", how_sub:"П'ять кроків від заявки до роботи в Європі.",
+    how_1_t:"Залиште номер", how_1_d:"Вкажіть Viber або Telegram для зв'язку.",
+    how_2_t:"Заповніть анкету", how_2_d:"Коротку або детальну — як вам зручно.",
+    how_3_t:"Менеджер отримає заявку", how_3_d:"Ми опрацюємо ваші дані та запит.",
+    how_4_t:"Отримаєте вакансії", how_4_d:"Надішлемо актуальні варіанти у месенджер.",
+    how_5_t:"Оберете роботу", how_5_d:"Виберете відповідний варіант і поїдете.",
+    how_media_t:"Зв'язок у месенджері", how_media_s:"Viber або Telegram — як вам зручно",
+    how_feed_t:"Останні заявки", how_feed_s_sent:"Надіслано", how_feed_s_review:"На розгляді", how_feed_s_offer:"Є вакансія",
+    ak_title:"Заповніть детальну анкету", ak_sub:"Так ми швидше підберемо вакансії саме під вас — за країною, досвідом і бажаною зарплатою.",
+    faq_eyebrow:"Часті запитання", faq_title:"Відповіді на ваші питання", faq_sub:"Не знайшли відповідь? Напишіть нам у Viber або Telegram.",
+    faq_1_q:"Для кого підходять вакансії?", faq_1_a:"Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього.",
+    faq_2_q:"У яких країнах є робота?", faq_2_a:"Ми підбираємо вакансії у Польщі, Німеччині та Нідерландах від різних агенцій.",
+    faq_3_q:"Чи можна їхати парою?", faq_3_a:"Так, є окремі вакансії для пар. Вкажіть це в анкеті — і ми підберемо відповідні варіанти.",
+    faq_4_q:"Чи є робота без досвіду?", faq_4_a:"Так, більшість напрямків — склади, теплиці, прибирання — не вимагають досвіду. Усьому навчають на місці.",
+    faq_5_q:"Як я отримаю вакансії?", faq_5_a:"Після заповнення анкети менеджер надішле вам актуальні вакансії у Viber або Telegram — той, що ви оберете.",
+    faq_6_q:"Чи можна залишити тільки Telegram?", faq_6_a:"Так. Оберіть зручний спосіб зв'язку — Viber або Telegram. Достатньо одного.",
+    faq_7_q:"Скільки часу займає підбір вакансій?", faq_7_a:"Зазвичай ми надсилаємо перші варіанти протягом 1–2 днів після отримання заявки.",
+    final_eyebrow:"Зробіть перший крок", final_title:"Хочете отримати актуальні вакансії?", final_sub:"Залиште номер Viber або Telegram — і ми надішлемо вам варіанти роботи в Польщі, Німеччині та Нідерландах.",
+    foot_about:"Сервіс підбору роботи в Європі для українців. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.",
+    foot_nav:"Навігація", foot_docs:"Документи", foot_contacts_block:"Наші контакти", foot_map:"Працюємо онлайн по всій Україні. Зв'язок та консультації — у Viber та Telegram.", foot_rights:"© 2026 ABURWORK. Усі права захищені.",
+    doc_privacy:"Політика конфіденційності", doc_consent:"Згода на обробку персональних даних",
+    modal_eyebrow:"Детальна анкета", modal_title:"Заповніть детальну анкету", modal_sub:"Так ми швидше підберемо вакансії під ваш запит.",
+    lbl_age:"Вік", lbl_country_now:"Країна перебування", lbl_country_work:"Бажана країна роботи", lbl_exp:"Досвід роботи", lbl_ready:"Коли готові виїхати", lbl_salary:"Бажана зарплата", lbl_comment:"Коментар",
+    ph_age:"Напр. 34", ph_country_now:"Напр. Україна", ph_exp:"Напр. склад, будівництво", ph_ready:"Напр. протягом місяця", ph_salary:"Напр. від 1200 EUR", ph_comment:"Додаткова інформація або побажання",
+    opt_choose:"Оберіть варіант", opt_pl:"Польща", opt_de:"Німеччина", opt_nl:"Нідерланди", opt_all:"Розглядаю всі варіанти",
+    success_long_h:"Анкету надіслано", success_long_p:"Ми переглянемо ваші дані та підберемо вакансії, які найбільше підходять під ваш запит.",
+    toast_sending:"Надсилаємо заявку…",
+    doc_privacy_title:"Політика конфіденційності",
+    doc_privacy_body:"<p>Цей сервіс <span class=\"gold-text\">ABURWORK</span> поважає вашу приватність. Ми збираємо лише ті дані, які ви добровільно надаєте через форми на сайті: ім'я, номер телефону, обраний месенджер та інформацію з детальної анкети.</p><h4>Мета обробки</h4><p>Дані використовуються виключно для підбору вакансій та зв'язку з вами через Viber або Telegram. Ми не продаємо та не передаємо ваші дані третім особам, окрім роботодавців і агенцій, з якими ми співпрацюємо для підбору вакансій.</p><h4>Зберігання</h4><p>Ваші дані зберігаються лише протягом часу, необхідного для надання послуги підбору роботи.</p><h4>Ваші права</h4><p>Ви можете в будь-який момент відкликати згоду та попросити видалити ваші дані, написавши нам у Viber або Telegram: +380976802942.</p>",
+    doc_consent_title:"Згода на обробку персональних даних",
+    doc_consent_body:"<p>Заповнюючи форму на сайті <span class=\"gold-text\">ABURWORK</span> та відмічаючи відповідний пункт, ви надаєте згоду на обробку ваших персональних даних.</p><h4>Які дані обробляються</h4><p>Ім'я, номер телефону, обраний спосіб зв'язку, а також додаткові дані з детальної анкети: вік, країна перебування, бажана країна роботи, досвід, дата готовності до виїзду, бажана зарплата та коментар.</p><h4>Мета</h4><p>Підбір актуальних вакансій у Польщі, Німеччині та Нідерландах і зв'язок з вами для надання цих вакансій.</p><h4>Відкликання згоди</h4><p>Згоду можна відкликати у будь-який момент, звернувшись до нас у Viber або Telegram: +380976802942.</p>",
+    tg_new:"Нова заявка ABURWORK", tg_type:"Тип", tg_type_short:"коротка анкета", tg_type_long:"детальна анкета",
+    tg_name:"Ім'я", tg_phone:"Телефон", tg_method:"Спосіб зв'язку", tg_lang:"Мова сайту", tg_date:"Дата / час",
+    tg_age:"Вік", tg_country_now:"Країна перебування", tg_country_work:"Бажана країна роботи", tg_exp:"Досвід", tg_ready:"Коли готовий / готова виїхати", tg_salary:"Бажана зарплата", tg_comment:"Коментар", tg_empty:"—"
+  },
+  ru: {
+    nav_jobs:"Вакансии", nav_countries:"Страны", nav_how:"Как это работает", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакты",
+    cta_get:"Получить вакансии", cta_detailed:"Заполнить подробную анкету", cta_pick:"Подобрать вакансию", cta_send:"Отправить анкету", cta_widget:"Заполнить анкету", retry:"Попробовать ещё раз",
+    stat_1:"страны для работы: Польша, Германия, Нидерланды", stat_2:"направлений вакансий от разных агентств", stat_3:"возраст кандидатов: мужчины, женщины, пары",
+    logos_label:"Работаем с проверенными агентствами и работодателями в Европе",
+    m_1:"Склады и фабрики", m_2:"Строительство", m_3:"Уборка", m_4:"Кухня", m_5:"Поля и теплицы", m_6:"Логистика",
+    why_eyebrow:"Почему ABURWORK", why_title:"Почему выбирают <span class=\"gold-text\">ABURWORK</span>", why_sub:"Мы собираем актуальные вакансии от проверенных агентств и сопровождаем вас на каждом этапе — от анкеты до выезда.", why_sub2:"Мы работаем только с проверенными агентствами и официальными работодателями, поэтому вы получаете реальные предложения с прозрачными условиями оплаты и проживания. Наша команда сопровождает вас от первого сообщения до выезда: поможем выбрать вакансию, подготовить документы и ответим на все вопросы на русском языке.",
+    why_1_t:"Проверенные агентства и работодатели",
+    why_2_t:"Актуальные вакансии в Европе",
+    why_3_t:"Поддержка на каждом этапе",
+    why_4_t:"Помощь с анкетой и документами",
+    why_stat_t:"актуальных вакансий", why_stat_s:"в Польше, Германии и Нидерландах",
+    c_pl_eyebrow:"Ближайшая страна", c_de_eyebrow:"Стабильная занятость", c_nl_eyebrow:"Сезон и производства",
+    how_n1:"ШАГ 01", how_n2:"ШАГ 02", how_n3:"ШАГ 03", how_n4:"ШАГ 04", how_n5:"ШАГ 05",
+    hero_eyebrow:"Подбор работы в Европе",
+    hero_h1:"Работа в Европе <span class='gold-text wm'>для украинцев</span>",
+    hero_sub:"Заполните анкету — и мы пришлём вам актуальные вакансии в Польше, Германии и Нидерландах в Viber или Telegram.",
+    badge_pl:"Польша", badge_de:"Германия", badge_nl:"Нидерланды", badge_who:"Мужчины, женщины, пары", badge_age:"Возраст 17–65",
+    form_title:"Получить вакансии", form_subtitle:"Оставьте контакты — пришлём актуальные вакансии за 1–2 дня.",
+    lbl_name:"Имя", lbl_phone:"Номер телефона", lbl_method:"Способ связи",
+    ph_name:"Ваше имя", ph_phone:"+380 __ ___ __ __",
+    err_name:"Укажите ваше имя", err_phone:"Укажите корректный номер телефона", err_method:"Выберите способ связи",
+    consent_text:"Я согласен(на) с <a href='#' data-doc='privacy'>обработкой персональных данных</a>",
+    success_short_h:"Спасибо!", success_short_p:"Мы получили вашу заявку. В ближайшее время вам пришлют актуальные вакансии в Viber или Telegram.",
+    error_h:"Ошибка", error_p:"Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Viber / Telegram: +380976802942.",
+    trust_1_t:"Вакансии от разных агентств", trust_1_s:"Проверенные работодатели",
+    trust_2_t:"Польша, Германия, Нидерланды", trust_2_s:"3 направления работы",
+    trust_3_t:"Для мужчин, женщин и пар", trust_3_s:"Без ограничений",
+    trust_4_t:"Кандидаты от 17 до 65 лет", trust_4_s:"Широкий диапазон",
+    trust_5_t:"Связь через Viber или Telegram", trust_5_s:"Быстрый ответ",
+    trust_6_t:"Большой выбор направлений", trust_6_s:"5+ категорий работы",
+    cat_eyebrow:"Направления работы", cat_title:"Какие вакансии можно получить", cat_sub:"Большой выбор вакансий от разных агентств в Польше, Германии и Нидерландах.",
+    cat_1_t:"Склады, заводы, фабрики", cat_1_d:"Работа на производственных линиях, упаковка, сортировка и логистика на складах.",
+    cat_2_t:"Строительство", cat_2_d:"Общестроительные работы, отделка, монтаж и вспомогательный персонал.",
+    cat_3_t:"Уборка", cat_3_d:"Клининг помещений, отелей, офисов и производственных площадей.",
+    cat_4_t:"Работа на кухне", cat_4_d:"Помощники повара, фасовка, работа на пищевых производствах.",
+    cat_5_t:"Поля и теплицы", cat_5_d:"Сезонная и постоянная работа в сельском хозяйстве и теплицах.",
+    country_eyebrow:"География вакансий", country_title:"Страны, где есть работа", country_sub:"Подбираем вакансии в трёх европейских странах в зависимости от вашего запроса.",
+    c_pl:"Польша", c_de:"Германия", c_nl:"Нидерланды",
+    c_pl_d:"Вакансии на складах, заводах, фабриках, в теплицах, уборке и других направлениях.",
+    c_de_d:"Работа для кандидатов, которые хотят получить стабильную занятость в Европе.",
+    c_nl_d:"Варианты работы на полях, в теплицах, на складах и производствах.",
+    c_link:"Хочу получить варианты",
+    how_eyebrow:"Простой процесс", how_title:"Как получить вакансии", how_sub:"Пять шагов от заявки до работы в Европе.",
+    how_1_t:"Оставьте номер", how_1_d:"Укажите Viber или Telegram для связи.",
+    how_2_t:"Заполните анкету", how_2_d:"Короткую или подробную — как вам удобно.",
+    how_3_t:"Менеджер получит заявку", how_3_d:"Мы обработаем ваши данные и запрос.",
+    how_4_t:"Получите вакансии", how_4_d:"Пришлём актуальные варианты в мессенджер.",
+    how_5_t:"Выберете работу", how_5_d:"Выберете подходящий вариант и поедете.",
+    how_media_t:"Связь в мессенджере", how_media_s:"Viber или Telegram — как вам удобно",
+    how_feed_t:"Последние заявки", how_feed_s_sent:"Отправлено", how_feed_s_review:"На рассмотрении", how_feed_s_offer:"Есть вакансия",
+    ak_title:"Заполните подробную анкету", ak_sub:"Так мы быстрее подберём вакансии именно под вас — по стране, опыту и желаемой зарплате.",
+    faq_eyebrow:"Частые вопросы", faq_title:"Ответы на ваши вопросы", faq_sub:"Не нашли ответ? Напишите нам в Viber или Telegram.",
+    faq_1_q:"Для кого подходят вакансии?", faq_1_a:"Вакансии подходят для мужчин, женщин и пар в возрасте от 17 до 65 лет. Есть варианты как с опытом, так и без него.",
+    faq_2_q:"В каких странах есть работа?", faq_2_a:"Мы подбираем вакансии в Польше, Германии и Нидерландах от разных агентств.",
+    faq_3_q:"Можно ли ехать парой?", faq_3_a:"Да, есть отдельные вакансии для пар. Укажите это в анкете — и мы подберём подходящие варианты.",
+    faq_4_q:"Есть ли работа без опыта?", faq_4_a:"Да, большинство направлений — склады, теплицы, уборка — не требуют опыта. Всему обучают на месте.",
+    faq_5_q:"Как я получу вакансии?", faq_5_a:"После заполнения анкеты менеджер пришлёт вам актуальные вакансии в Viber или Telegram — тот, что вы выберете.",
+    faq_6_q:"Можно оставить только Telegram?", faq_6_a:"Да. Выберите удобный способ связи — Viber или Telegram. Достаточно одного.",
+    faq_7_q:"Сколько времени занимает подбор вакансий?", faq_7_a:"Обычно мы присылаем первые варианты в течение 1–2 дней после получения заявки.",
+    final_eyebrow:"Сделайте первый шаг", final_title:"Хотите получить актуальные вакансии?", final_sub:"Оставьте номер Viber или Telegram — и мы пришлём вам варианты работы в Польше, Германии и Нидерландах.",
+    foot_about:"Сервис подбора работы в Европе для украинцев. Помогаем найти актуальные вакансии в Польше, Германии и Нидерландах через проверенные агентства.",
+    foot_nav:"Навигация", foot_docs:"Документы", foot_contacts_block:"Наши контакты", foot_map:"Работаем онлайн по всей Украине. Связь и консультации — в Viber и Telegram.", foot_rights:"© 2026 ABURWORK. Все права защищены.",
+    doc_privacy:"Политика конфиденциальности", doc_consent:"Согласие на обработку персональных данных",
+    modal_eyebrow:"Подробная анкета", modal_title:"Заполните подробную анкету", modal_sub:"Так мы быстрее подберём вакансии под ваш запрос.",
+    lbl_age:"Возраст", lbl_country_now:"Страна пребывания", lbl_country_work:"Желаемая страна работы", lbl_exp:"Опыт работы", lbl_ready:"Когда готовы выехать", lbl_salary:"Желаемая зарплата", lbl_comment:"Комментарий",
+    ph_age:"Напр. 34", ph_country_now:"Напр. Украина", ph_exp:"Напр. склад, строительство", ph_ready:"Напр. в течение месяца", ph_salary:"Напр. от 1200 EUR", ph_comment:"Дополнительная информация или пожелания",
+    opt_choose:"Выберите вариант", opt_pl:"Польша", opt_de:"Германия", opt_nl:"Нидерланды", opt_all:"Рассматриваю все варианты",
+    success_long_h:"Анкета отправлена", success_long_p:"Мы рассмотрим ваши данные и подберём вакансии, которые лучше всего подходят под ваш запрос.",
+    toast_sending:"Отправляем заявку…",
+    doc_privacy_title:"Политика конфиденциальности",
+    doc_privacy_body:"<p>Сервис <span class=\"gold-text\">ABURWORK</span> уважает вашу приватность. Мы собираем только те данные, которые вы добровольно предоставляете через формы на сайте: имя, номер телефона, выбранный мессенджер и информацию из подробной анкеты.</p><h4>Цель обработки</h4><p>Данные используются исключительно для подбора вакансий и связи с вами через Viber или Telegram. Мы не продаём и не передаём ваши данные третьим лицам, кроме работодателей и агентств, с которыми мы сотрудничаем для подбора вакансий.</p><h4>Хранение</h4><p>Ваши данные хранятся только в течение времени, необходимого для оказания услуги подбора работы.</p><h4>Ваши права</h4><p>Вы можете в любой момент отозвать согласие и попросить удалить ваши данные, написав нам в Viber или Telegram: +380976802942.</p>",
+    doc_consent_title:"Согласие на обработку персональных данных",
+    doc_consent_body:"<p>Заполняя форму на сайте <span class=\"gold-text\">ABURWORK</span> и отмечая соответствующий пункт, вы даёте согласие на обработку ваших персональных данных.</p><h4>Какие данные обрабатываются</h4><p>Имя, номер телефона, выбранный способ связи, а также дополнительные данные из подробной анкеты: возраст, страна пребывания, желаемая страна работы, опыт, дата готовности к выезду, желаемая зарплата и комментарий.</p><h4>Цель</h4><p>Подбор актуальных вакансий в Польше, Германии и Нидерландах и связь с вами для предоставления этих вакансий.</p><h4>Отзыв согласия</h4><p>Согласие можно отозвать в любой момент, обратившись к нам в Viber или Telegram: +380976802942.</p>",
+    tg_new:"Новая заявка ABURWORK", tg_type:"Тип", tg_type_short:"короткая анкета", tg_type_long:"подробная анкета",
+    tg_name:"Имя", tg_phone:"Телефон", tg_method:"Способ связи", tg_lang:"Язык сайта", tg_date:"Дата / время",
+    tg_age:"Возраст", tg_country_now:"Страна пребывания", tg_country_work:"Желаемая страна работы", tg_exp:"Опыт", tg_ready:"Когда готов / готова выехать", tg_salary:"Желаемая зарплата", tg_comment:"Комментарий", tg_empty:"—"
+  }
+};
+
+let currentLang = "ua";
+
+function t(key){ return (translations[currentLang] && translations[currentLang][key]) || key; }
+
+function applyLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = (lang === "ua") ? "uk" : "ru";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    const v = translations[lang][el.getAttribute("data-i18n")];
+    if(v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+    const v = translations[lang][el.getAttribute("data-i18n-html")];
+    if(v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    const v = translations[lang][el.getAttribute("data-i18n-ph")];
+    if(v !== undefined) el.setAttribute("placeholder", v);
+  });
+  document.querySelectorAll(".lang-switch button").forEach(function(b){
+    b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+  });
+  if(window.wpFeed) window.wpFeed.render(lang);
+  try{ localStorage.setItem("aburwork_lang", lang); }catch(e){}
+}
+
+document.querySelectorAll(".lang-switch button").forEach(function(btn){
+  btn.addEventListener("click", function(){ applyLang(btn.getAttribute("data-lang")); });
+});
+
+/* ----- 3. STICKY HEADER (hide on scroll down, show on up) ----- */
+const header = document.getElementById("header");
+let lastScroll = 0, scrollTimer = null;
+window.addEventListener("scroll", function(){
+  const y = window.pageYOffset;
+  header.classList.toggle("scrolled", y > 20);
+  if(y > lastScroll && y > 400){ header.classList.add("hide"); }
+  else { header.classList.remove("hide"); }
+  lastScroll = y;
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(function(){ header.classList.remove("hide"); }, 900);
+}, {passive:true});
+
+/* ----- 4. MOBILE MENU ----- */
+const burger = document.getElementById("burger");
+const mobileMenu = document.getElementById("mobileMenu");
+function toggleMenu(open){
+  const isOpen = (open !== undefined) ? open : !mobileMenu.classList.contains("open");
+  mobileMenu.classList.toggle("open", isOpen);
+  burger.classList.toggle("open", isOpen);
+  burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  document.body.classList.toggle("no-scroll", isOpen);
+}
+burger.addEventListener("click", function(){ toggleMenu(); });
+mobileMenu.querySelectorAll("a").forEach(function(a){
+  a.addEventListener("click", function(){ toggleMenu(false); });
+});
+
+/* ----- 5. SMOOTH SCROLL helper for data-scroll targets ----- */
+document.querySelectorAll("[data-scroll]").forEach(function(el){
+  el.addEventListener("click", function(e){
+    const id = el.getAttribute("data-scroll");
+    const target = document.getElementById(id);
+    if(target){
+      e.preventDefault();
+      toggleMenu(false);
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({top:top, behavior:"smooth"});
+    }
+  });
+});
+
+/* ----- 6. FAQ ACCORDION ----- */
+document.querySelectorAll(".faq-item").forEach(function(item){
+  const q = item.querySelector(".faq-q");
+  const a = item.querySelector(".faq-a");
+  q.addEventListener("click", function(){
+    const isOpen = item.classList.contains("open");
+    document.querySelectorAll(".faq-item.open").forEach(function(other){
+      other.classList.remove("open");
+      other.querySelector(".faq-a").style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add("open");
+      a.style.maxHeight = a.scrollHeight + "px";
+    }
+  });
+});
+
+/* ----- 7. MODALS (detail form + docs) ----- */
+const detailModal = document.getElementById("detailModal");
+const docModal = document.getElementById("docModal");
+let lastFocused = null;
+
+function openModal(modal){
+  lastFocused = document.activeElement;
+  modal.classList.add("open");
+  document.body.classList.add("no-scroll");
+  const focusable = modal.querySelector("input,select,textarea,button");
+  setTimeout(function(){ if(focusable) focusable.focus(); }, 80);
+}
+function closeModal(modal){
+  modal.classList.remove("open");
+  if(!detailModal.classList.contains("open") && !docModal.classList.contains("open")){
+    document.body.classList.remove("no-scroll");
+  }
+  if(lastFocused) lastFocused.focus();
+}
+document.querySelectorAll("[data-open-modal]").forEach(function(btn){
+  btn.addEventListener("click", function(){ toggleMenu(false); openModal(detailModal); });
+});
+document.querySelectorAll("[data-close-modal]").forEach(function(btn){
+  btn.addEventListener("click", function(){ closeModal(btn.closest(".modal-overlay")); });
+});
+[detailModal, docModal].forEach(function(m){
+  m.addEventListener("click", function(e){ if(e.target === m) closeModal(m); });
+});
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    if(docModal.classList.contains("open")) closeModal(docModal);
+    else if(detailModal.classList.contains("open")) closeModal(detailModal);
+    else if(mobileMenu.classList.contains("open")) toggleMenu(false);
+  }
+});
+
+/* doc modal (privacy / consent) — delegated for dynamic i18n links */
+document.addEventListener("click", function(e){
+  const link = e.target.closest("[data-doc]");
+  if(!link) return;
+  e.preventDefault();
+  const which = link.getAttribute("data-doc");
+  document.getElementById("docTitle").textContent = t(which === "privacy" ? "doc_privacy_title" : "doc_consent_title");
+  document.getElementById("docBody").innerHTML = t(which === "privacy" ? "doc_privacy_body" : "doc_consent_body");
+  openModal(docModal);
+});
+
+/* ----- 8. TOAST ----- */
+const toast = document.getElementById("toast");
+const toastMsg = document.getElementById("toastMsg");
+let toastTimer = null;
+function showToast(msg, type){
+  toast.className = "toast show " + (type || "success");
+  toastMsg.textContent = msg;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 4000);
+}
+
+/* ----- 9. VALIDATION ----- */
+function setInvalid(field, invalid){
+  if(field) field.classList.toggle("invalid", invalid);
+}
+function validatePhone(value){
+  const digits = (value || "").replace(/\D/g, "");
+  return digits.length >= 9;
+}
+function validateForm(form){
+  let ok = true;
+  const nameField = form.querySelector("[name='name']").closest(".field");
+  const phoneInput = form.querySelector("[name='phone']");
+  const phoneField = phoneInput.closest(".field");
+  const methodField = form.querySelector("[name='method']").closest(".field");
+  const consentInput = form.querySelector("[name='consent']");
+  const consentWrap = consentInput.closest(".consent");
+
+  if(!form.querySelector("[name='name']").value.trim()){ setInvalid(nameField, true); ok = false; } else setInvalid(nameField, false);
+  if(!validatePhone(phoneInput.value)){ setInvalid(phoneField, true); ok = false; } else setInvalid(phoneField, false);
+  const methodChecked = form.querySelector("[name='method']:checked");
+  if(!methodChecked){ setInvalid(methodField, true); ok = false; } else setInvalid(methodField, false);
+  if(!consentInput.checked){ consentWrap.classList.add("invalid"); ok = false; } else consentWrap.classList.remove("invalid");
+
+  return ok;
+}
+/* live clear of errors */
+document.querySelectorAll("form").forEach(function(form){
+  form.addEventListener("input", function(e){
+    const f = e.target.closest(".field");
+    if(f) f.classList.remove("invalid");
+    const c = e.target.closest(".consent");
+    if(c) c.classList.remove("invalid");
+  });
+  form.addEventListener("change", function(e){
+    if(e.target.name === "method"){
+      const mf = e.target.closest(".field"); if(mf) mf.classList.remove("invalid");
+    }
+  });
+});
+
+/* ----- 10. TELEGRAM SENDING ----- */
+function nowStamp(){
+  const d = new Date();
+  const p = function(n){ return String(n).padStart(2,"0"); };
+  return p(d.getDate())+"."+p(d.getMonth()+1)+"."+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes());
+}
+function esc(s){
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+function langLabel(){ return currentLang === "ua" ? "Українська (UA)" : "Русский (RU)"; }
+
+function buildShortMessage(data){
+  return "<b>"+esc(t("tg_new"))+"</b>\n" +
+    esc(t("tg_type"))+": "+esc(t("tg_type_short"))+"\n" +
+    esc(t("tg_name"))+": "+esc(data.name)+"\n" +
+    esc(t("tg_phone"))+": "+esc(data.phone)+"\n" +
+    esc(t("tg_method"))+": "+esc(data.method)+"\n" +
+    esc(t("tg_lang"))+": "+esc(langLabel())+"\n" +
+    esc(t("tg_date"))+": "+esc(nowStamp());
+}
+function buildDetailMessage(data){
+  const e = t("tg_empty");
+  return "<b>"+esc(t("tg_new"))+"</b>\n" +
+    esc(t("tg_type"))+": "+esc(t("tg_type_long"))+"\n" +
+    esc(t("tg_name"))+": "+esc(data.name)+"\n" +
+    esc(t("tg_phone"))+": "+esc(data.phone)+"\n" +
+    esc(t("tg_method"))+": "+esc(data.method)+"\n" +
+    esc(t("tg_age"))+": "+esc(data.age || e)+"\n" +
+    esc(t("tg_country_now"))+": "+esc(data.country_now || e)+"\n" +
+    esc(t("tg_country_work"))+": "+esc(data.country_work || e)+"\n" +
+    esc(t("tg_exp"))+": "+esc(data.experience || e)+"\n" +
+    esc(t("tg_ready"))+": "+esc(data.ready || e)+"\n" +
+    esc(t("tg_salary"))+": "+esc(data.salary || e)+"\n" +
+    esc(t("tg_comment"))+": "+esc(data.comment || e)+"\n" +
+    esc(t("tg_lang"))+": "+esc(langLabel())+"\n" +
+    esc(t("tg_date"))+": "+esc(nowStamp());
+}
+
+async function sendToTelegram(text){
+  // Якщо токен/чат не задані — кидаємо помилку, щоб показати error-state замість "тихої" відправки.
+  if(!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID){
+    throw new Error("Telegram config is missing");
+  }
+  const url = "https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/sendMessage";
+  const res = await fetch(url, {
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: text,
+      parse_mode: "HTML",
+      disable_web_page_preview: true
+    })
+  });
+  if(!res.ok) throw new Error("Telegram API error: " + res.status);
+  const json = await res.json();
+  if(!json.ok) throw new Error("Telegram rejected: " + (json.description || "unknown"));
+  return json;
+}
+
+/* ----- 11. FORM SUBMIT HANDLERS ----- */
+function collect(form){
+  const d = {};
+  new FormData(form).forEach(function(v,k){ d[k] = v; });
+  const m = form.querySelector("[name='method']:checked");
+  d.method = m ? m.value : "";
+  return d;
+}
+function showState(form, type){
+  const wrap = form.parentElement;
+  const successEl = wrap.querySelector(".form-state.success");
+  const errorEl = wrap.querySelector(".form-state.error");
+  successEl.classList.remove("show");
+  errorEl.classList.remove("show");
+  if(type === "success"){ form.style.display = "none"; successEl.classList.add("show"); }
+  else if(type === "error"){ form.style.display = "none"; errorEl.classList.add("show"); }
+  else { form.style.display = ""; }
+}
+
+async function handleSubmit(form, builder, isDetail){
+  if(!validateForm(form)) return;
+  const data = collect(form);
+  const submitBtn = form.querySelector("button[type='submit']");
+  const originalHTML = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = "<span>…</span>";
+  showToast(t("toast_sending"), "success");
+  try{
+    await sendToTelegram(builder(data));
+    showState(form, "success");
+    form.reset();
+    if(isDetail){
+      // reset segmented + consent visual states
+      form.querySelectorAll(".field.invalid,.consent.invalid").forEach(function(x){ x.classList.remove("invalid"); });
+    }
+  }catch(err){
+    console.error("[ABURWORK] Submit failed:", err);
+    showState(form, "error");
+    showToast(t("error_h"), "error");
+  }finally{
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalHTML;
+  }
+}
+
+const shortForm = document.getElementById("shortForm");
+shortForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  handleSubmit(shortForm, buildShortMessage, false);
+});
+const detailForm = document.getElementById("detailForm");
+detailForm.addEventListener("submit", function(e){
+  e.preventDefault();
+  handleSubmit(detailForm, buildDetailMessage, true);
+});
+
+/* retry buttons -> back to form */
+document.querySelectorAll("[data-retry]").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    const which = btn.getAttribute("data-retry");
+    const form = (which === "short") ? shortForm : detailForm;
+    showState(form, "form");
+  });
+});
+
+/* ----- 12. REVEAL ON SCROLL ----- */
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){ entry.target.classList.add("in"); io.unobserve(entry.target); }
+  });
+}, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+
+/* ----- 12a2. HOW feed: randomized "latest applications" (new picks every page load) ----- */
+window.wpFeed = (function(){
+  const rowsEl = document.getElementById("wpFeedRows");
+  const NAMES = {
+    ua:["Олена Ковальчук","Михайло Решетило","Ірина Бондаренко","Андрій Гнатюк","Наталія Дзюба","Володимир Левченко","Софія Марчук","Тарас Кравець","Оксана Поліщук","Денис Ткаченко","Юлія Савчук","Роман Захарчук","Катерина Лисенко","Богдан Мельник","Вікторія Шевчук","Олександр Гуменюк"],
+    ru:["Елена Ковальчук","Михаил Решетило","Ирина Бондаренко","Андрей Гнатюк","Наталья Дзюба","Владимир Левченко","София Марчук","Тарас Кравец","Оксана Полищук","Денис Ткаченко","Юлия Савчук","Роман Захарчук","Екатерина Лысенко","Богдан Мельник","Виктория Шевчук","Александр Гуменюк"]
+  };
+  const STATES = ["sent","review","offer"];
+  let picks = null;
+  function rand(n){ return Math.floor(Math.random() * n); }
+  function init(){
+    const n = NAMES.ua.length, used = {}, out = [];
+    while(out.length < 3){
+      const i = rand(n);
+      if(used[i]) continue;
+      used[i] = 1;
+      out.push({ i: i, state: STATES[rand(STATES.length)], mins: 3 + rand(178) });
+    }
+    out.sort(function(a,b){ return a.mins - b.mins; });
+    picks = out;
+  }
+  function timeLabel(mins, lang){
+    if(mins < 60) return mins + " " + (lang === "ua" ? "хв тому" : "мин назад");
+    const h = Math.round(mins / 60);
+    return h + " " + (lang === "ua" ? "год тому" : "ч назад");
+  }
+  function initials(name){
+    const p = name.split(" ");
+    return ((p[0] || "")[0] || "") + ((p[1] || "")[0] || "");
+  }
+  function render(lang){
+    if(!rowsEl) return;
+    if(!picks) init();
+    rowsEl.innerHTML = "";
+    picks.forEach(function(p){
+      const name = NAMES[lang][p.i];
+      const row = document.createElement("div");
+      row.className = "wp-feed-row";
+      const av = document.createElement("span"); av.className = "wp-feed-av"; av.textContent = initials(name);
+      const meta = document.createElement("span"); meta.className = "wp-feed-meta";
+      const nm = document.createElement("b"); nm.textContent = name;
+      const tm = document.createElement("small"); tm.textContent = timeLabel(p.mins, lang);
+      meta.appendChild(nm); meta.appendChild(tm);
+      const st = document.createElement("span"); st.className = "wp-feed-state"; st.textContent = t("how_feed_s_" + p.state);
+      row.appendChild(av); row.appendChild(meta); row.appendChild(st);
+      rowsEl.appendChild(row);
+    });
+  }
+  return { render: render };
+})();
+
+/* ----- 12b. HOW-IT-WORKS: highlight rail circle matching the topmost pinned card ----- */
+(function(){
+  const cards = Array.prototype.slice.call(document.querySelectorAll(".wp-card"));
+  const circles = Array.prototype.slice.call(document.querySelectorAll(".wp-circle"));
+  if(!cards.length || !circles.length) return;
+  let ticking = false;
+  function update(){
+    ticking = false;
+    const pin = 140; // matches sticky top offset
+    let active = 0;
+    for(let i=0;i<cards.length;i++){
+      if(cards[i].getBoundingClientRect().top <= pin) active = i;
+    }
+    circles.forEach(function(c,i){ c.classList.toggle("active", i === active); });
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll, {passive:true});
+  update();
+})();
+
+/* ----- 13. INIT LANGUAGE ----- */
+(function initLang(){
+  let saved = null;
+  try{ saved = localStorage.getItem("aburwork_lang"); }catch(e){}
+  applyLang(saved === "ru" ? "ru" : "ua");
+})();
+</script>
+</body>
+</html>

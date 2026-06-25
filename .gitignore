@@ -1,0 +1,6 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Third-party Webflow export kept locally as a visual reference only — not part of the site
+assets/Recurify Webflow Template/
