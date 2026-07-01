@@ -199,8 +199,11 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 .header-actions .btn{padding:11px 22px;font-size:14.5px;box-shadow:0 8px 20px rgba(201,162,75,.2)}
 .header-actions .btn .ico{display:none}
 .lang-switch{display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;padding:3px;background:rgba(255,255,255,.02)}
-.lang-switch button{padding:6px 13px;font-size:13px;font-weight:600;border-radius:100px;color:var(--muted);transition:color .3s,background .3s}
+.lang-switch button{display:flex;align-items:center;gap:7px;padding:6px 12px;font-size:13px;font-weight:600;border-radius:100px;color:var(--muted);transition:color .3s,background .3s}
 .lang-switch button.active{background:var(--gold-grad);color:#0a0b0d}
+.lang-switch .flag{flex:none;width:18px;height:13px;border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,.25);box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.flag-ua{background:linear-gradient(180deg,#0057b7 0 50%,#ffd700 50% 100%)}
+.flag-ru{background:linear-gradient(180deg,#fff 0 33.33%,#0039a6 33.33% 66.66%,#d52b1e 66.66% 100%)}
 .burger{display:none;width:46px;height:46px;border:1px solid var(--line);border-radius:14px;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:rgba(255,255,255,.02)}
 .burger span{width:20px;height:2px;background:var(--gold-1);border-radius:2px;transition:transform .4s var(--ease),opacity .3s}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -231,6 +234,20 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 .chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;font-size:13.5px;font-weight:500;color:var(--beige);border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.02)}
 .chip svg{width:15px;height:15px;color:var(--gold-2)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+
+/* vacancies list (hero + vacancies section) */
+.vac-block{margin:6px 0 34px}
+.vac-title{font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:700;color:var(--gold-1);letter-spacing:.02em;text-transform:uppercase;margin-bottom:20px;line-height:1.3}
+.vac-list{display:flex;flex-direction:column;gap:13px}
+.vac-list li{display:flex;align-items:center;gap:13px;font-size:15px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text);line-height:1.3}
+.vac-list li::before{content:"";flex:none;width:11px;height:11px;border-radius:3px;background:var(--gold-grad);box-shadow:0 0 10px rgba(201,162,75,.45)}
+/* standalone vacancies section */
+.vac-section{max-width:720px;margin:0 auto;text-align:center}
+.vac-section .vac-title{font-size:clamp(1.5rem,3.2vw,2.3rem);margin-bottom:34px}
+.vac-section .vac-list{display:inline-flex;text-align:left;gap:16px}
+.vac-section .vac-list li{font-size:clamp(1rem,1.7vw,1.2rem)}
+.why-phone{color:var(--gold-1);font-weight:600;white-space:nowrap;transition:color .3s}
+.why-phone:hover{color:var(--gold-2)}
 
 /* form card */
 .form-card{background:linear-gradient(180deg,rgba(24,27,34,.92),rgba(16,18,22,.92));border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-card);position:relative;overflow:hidden}
@@ -385,6 +402,8 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 .footer-col h4{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);margin-bottom:20px}
 .footer-col a{display:block;font-size:14.5px;color:var(--on-dark-mute);padding:7px 0;transition:color .3s}
 .footer-col a:hover{color:var(--gold-bright)}
+.foot-cta-text{margin-top:16px;font-size:13.5px;line-height:1.6;color:var(--on-dark-mute)}
+.foot-cta-text a{display:inline;padding:0;color:var(--gold-bright);font-weight:600;white-space:nowrap}
 .foot-contact a{display:flex;align-items:center;gap:10px}
 .foot-contact svg{width:17px;height:17px;color:var(--gold-2);flex:none}
 .foot-map{margin-top:14px;border:1px solid var(--dark-line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03);padding:16px;display:flex;align-items:center;gap:12px}
@@ -486,7 +505,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 .stat-float .sf-s{display:block;margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.45}
 .why-body{display:flex;flex-direction:column;align-items:flex-start}
 .why-body h2{margin-bottom:16px}
-.why-body .lead{margin:0 0 30px}
+.why-body .lead{margin:0 0 14px}
 .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:34px;width:100%}
 .why-body .btn{margin-top:12px}
 .check-item{display:flex;align-items:center;gap:12px}
@@ -594,7 +613,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
   .header-actions .btn{display:none}
   .burger{display:flex}
   .brand{flex:0 1 auto;min-width:0}
-  .brand-logo{height:62px;max-width:100%}
+  .brand-logo{height:74px;max-width:100%}
   .header-actions{flex:0 0 auto}
   .footer-logo{height:124px}
   .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -638,7 +657,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 }
 @media (max-width:640px){
   :root{--gutter:20px}
-  .brand-logo{height:52px}
+  .brand-logo{height:62px}
   .logos-label{letter-spacing:.13em;font-size:10.5px;gap:10px;line-height:1.5}
   .logos-label::before,.logos-label::after{width:22px}
   .header-inner{gap:10px}
@@ -711,8 +730,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 
     <nav class="nav" aria-label="Головна навігація">
       <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
-      <a href="#countries" data-i18n="nav_countries">Країни</a>
-      <a href="#how" data-i18n="nav_how">Як це працює</a>
+      <a href="#why" data-i18n="nav_about">Про нас</a>
       <a href="#hero" data-i18n="nav_form">Анкета</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
       <a href="#footer" data-i18n="nav_contacts">Контакти</a>
@@ -720,8 +738,8 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
 
     <div class="header-actions">
       <div class="lang-switch" role="group" aria-label="Мова сайту">
-        <button data-lang="ua" class="active" type="button">UA</button>
-        <button data-lang="ru" type="button">RU</button>
+        <button data-lang="ua" class="active" type="button"><span class="flag flag-ua"></span>UA</button>
+        <button data-lang="ru" type="button"><span class="flag flag-ru"></span>RU</button>
       </div>
       <a href="#hero" class="btn btn-primary" data-scroll="hero"><span data-i18n="cta_get">Отримати вакансії</span></a>
       <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -734,8 +752,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
   <button class="mm-close" id="mmClose" type="button" aria-label="Закрити меню"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
   <nav aria-label="Мобільна навігація">
     <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
-    <a href="#countries" data-i18n="nav_countries">Країни</a>
-    <a href="#how" data-i18n="nav_how">Як це працює</a>
+    <a href="#why" data-i18n="nav_about">Про нас</a>
     <a href="#hero" data-i18n="nav_form">Анкета</a>
     <a href="#faq" data-i18n="nav_faq">FAQ</a>
     <a href="#footer" data-i18n="nav_contacts">Контакти</a>
@@ -757,16 +774,20 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
-        <h1 data-i18n-html="hero_h1">Робота в Європі <span class="gold-text wm">для українців</span></h1>
-        <p class="lead" data-i18n="hero_sub">Заповніть анкету — і ми надішлемо вам актуальні вакансії у Польщі, Німеччині та Нідерландах у Viber або Telegram.</p>
+        <h1 data-i18n-html="hero_h1">Робота в <span class="gold-text wm">Польщі, Німеччині та Нідерландах</span></h1>
+        <div class="vac-block">
+          <p class="vac-title" data-i18n="vac_title">Є більше 500 вакансій від різних агенцій!</p>
+          <ul class="vac-list">
+            <li data-i18n="vac_1">Склади, заводи, фабрики</li>
+            <li data-i18n="vac_2">Будівництво</li>
+            <li data-i18n="vac_3">Прибирання</li>
+            <li data-i18n="vac_4">Робота на кухні</li>
+            <li data-i18n="vac_5">Праця на полях та в теплицях</li>
+          </ul>
+        </div>
         <div class="hero-cta">
           <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
           <button class="btn btn-ghost btn-lg" data-open-modal><span data-i18n="cta_detailed">Заповнити детальну анкету</span></button>
-        </div>
-        <div class="hero-stats">
-          <div class="stat-card"><span class="num">3</span><span class="lbl" data-i18n="stat_1">країни для роботи: Польща, Німеччина, Нідерланди</span></div>
-          <div class="stat-card"><span class="num">5+</span><span class="lbl" data-i18n="stat_2">напрямків вакансій від різних агенцій</span></div>
-          <div class="stat-card"><span class="num">17–65</span><span class="lbl" data-i18n="stat_3">вік кандидатів: чоловіки, жінки, пари</span></div>
         </div>
       </div>
 
@@ -776,7 +797,7 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
           <span class="badge-ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
           <h3 data-i18n="form_title">Отримати вакансії</h3>
         </div>
-        <p class="fc-sub" data-i18n="form_subtitle">Залиште контакти — надішлемо актуальні вакансії за 1–2 дні.</p>
+        <p class="fc-sub" data-i18n="form_subtitle">Щоб отримати актуальні вакансії, заповніть коротку анкету або напишіть нам у Viber чи Telegram: +380 97 680 29 42.</p>
 
         <form id="shortForm" novalidate>
           <div class="field">
@@ -788,6 +809,16 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
             <label for="sf-phone"><span data-i18n="lbl_phone">Номер телефону</span> <span class="req">*</span></label>
             <input class="input" id="sf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" data-i18n-ph="ph_phone" placeholder="+380 __ ___ __ __" />
             <span class="err" data-i18n="err_phone">Вкажіть коректний номер телефону</span>
+          </div>
+          <div class="field">
+            <label for="sf-country"><span data-i18n="lbl_country_work">Бажана країна роботи</span></label>
+            <select class="select" id="sf-country" name="country_work">
+              <option value="" data-i18n="opt_choose">Оберіть варіант</option>
+              <option value="Польща" data-i18n="opt_pl">Польща</option>
+              <option value="Німеччина" data-i18n="opt_de">Німеччина</option>
+              <option value="Нідерланди" data-i18n="opt_nl">Нідерланди</option>
+              <option value="Розглядаю всі варіанти" data-i18n="opt_all">Розглядаю всі варіанти</option>
+            </select>
           </div>
           <div class="field">
             <label><span data-i18n="lbl_method">Спосіб зв'язку</span> <span class="req">*</span></label>
@@ -854,190 +885,36 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
         <div class="ph"><img src="assets/CFF8CA24-A1DE-4032-8707-836D3811D2A6.png" alt="Кандидат отримує вакансії в Європі" loading="lazy" /></div>
         <div class="stat-float">
           <span class="sf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13M3 21h18M15 21V11l6-3v13M7 13h2M7 17h2"/></svg></span>
-          <span class="sf-num">100+</span>
+          <span class="sf-num">500+</span>
           <span class="sf-t" data-i18n="why_stat_t">актуальних вакансій</span>
           <span class="sf-s" data-i18n="why_stat_s">у Польщі, Німеччині та Нідерландах</span>
         </div>
       </div>
       <div class="why-body reveal">
-        <h2 data-i18n-html="why_title">Чому обирають <span class="gold-text">ABURWORK</span></h2>
-        <p class="lead" data-i18n="why_sub">Ми збираємо актуальні вакансії від різних агенцій і надсилаємо їх вам у Viber або Telegram — без зайвих кроків.</p>
-        <p class="lead" data-i18n="why_sub2">Ми працюємо лише з перевіреними агенціями та офіційними роботодавцями, тож ви отримуєте реальні пропозиції з прозорими умовами оплати та проживання. Наша команда супроводжує вас від першого повідомлення до виїзду: допоможемо обрати вакансію, підготувати документи й відповімо на всі запитання українською мовою.</p>
-        <div class="check-grid">
-          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_1_t">Перевірені агенції та роботодавці</b></div>
-          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_2_t">Актуальні вакансії у Європі</b></div>
-          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_3_t">Підтримка на кожному етапі</b></div>
-          <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span><b data-i18n="why_4_t">Допомога з анкетою та документами</b></div>
-        </div>
+        <h2 data-i18n="why_title">Про нас</h2>
+        <p class="lead" data-i18n="why_sub">ABURWORK — це команда, яка допомагає людям знаходити роботу в Європі.</p>
+        <p class="lead" data-i18n="why_sub2">Ми співпрацюємо з багатьма рекрутерами, які разом мають понад 500 актуальних вакансій від різних агенцій.</p>
+        <p class="lead" data-i18n="why_sub3">Щоб отримати вакансії, заповніть коротку анкету. Після цього ми зв'яжемося з вами, поставимо кілька уточнюючих питань і підберемо тільки ті вакансії, які відповідають вашим побажанням.</p>
+        <p class="lead" data-i18n-html="why_sub4">Також ви можете самостійно написати нам у Viber або Telegram:<br><a href="tel:+380976802942" class="why-phone">+380 97 680 29 42</a></p>
+        <p class="lead" data-i18n="why_sub5">Додатково ми допомагаємо з виготовленням усіх необхідних документів для працевлаштування.</p>
         <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= CATEGORIES ================= -->
+<!-- ================= VACANCIES ================= -->
 <section class="section" id="categories">
   <div class="container">
-    <div class="head-row reveal">
-      <div class="hr-text">
-        <h2 data-i18n="cat_title">Які вакансії можна отримати</h2>
-        <p class="lead" data-i18n="cat_sub">Великий вибір вакансій від різних агенцій у Польщі, Німеччині та Нідерландах.</p>
-      </div>
-      <button class="btn btn-primary hr-cta" data-open-modal><span data-i18n="cta_pick">Підібрати вакансію</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-    </div>
-
-    <div class="cats-scroll reveal">
-      <article class="cat-card">
-        <div class="cc-img"><img src="assets/9236B0FB-1539-4444-8C9C-E66C4FA5E3B0.png" alt="Робота на складах, заводах і фабриках" loading="lazy" /></div>
-        <span class="cc-num">01</span>
-        <div class="cc-body">
-          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V9l6-4 6 4M3 21h18M15 21V11l6-3v13M7 13h2M7 17h2"/></svg></span>
-          <h3 data-i18n="cat_1_t">Склади, заводи, фабрики</h3>
-          <p data-i18n="cat_1_d">Робота на виробничих лініях, пакування, сортування та логістика на складах.</p>
-        </div>
-      </article>
-      <article class="cat-card">
-        <div class="cc-img"><img src="assets/394F5996-EAD8-469F-A184-EEAD912B2759.png" alt="Робота на будівництві" loading="lazy" /></div>
-        <span class="cc-num">02</span>
-        <div class="cc-body">
-          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V9l8-5 8 5v11M9 20v-5h6v5"/></svg></span>
-          <h3 data-i18n="cat_2_t">Будівництво</h3>
-          <p data-i18n="cat_2_d">Загальнобудівельні роботи, оздоблення, монтаж та допоміжний персонал.</p>
-        </div>
-      </article>
-      <article class="cat-card">
-        <div class="cc-img"><img src="assets/C875EDA1-E2A0-4002-BD76-4FBACC2618DB.png" alt="Робота з прибирання" loading="lazy" /></div>
-        <span class="cc-num">03</span>
-        <div class="cc-body">
-          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M6 21v-7M18 21v-7M4 14h16l-2-6H6zM10 8V4h4v4"/></svg></span>
-          <h3 data-i18n="cat_3_t">Прибирання</h3>
-          <p data-i18n="cat_3_d">Клінінг приміщень, готелів, офісів та виробничих площ.</p>
-        </div>
-      </article>
-      <article class="cat-card">
-        <div class="cc-img"><img src="assets/064992EA-4D34-4F6A-B103-6FD4CBE131A9.png" alt="Робота на кухні" loading="lazy" /></div>
-        <span class="cc-num">04</span>
-        <div class="cc-body">
-          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 3v8a3 3 0 006 0V3M8 3v6M16 3c-1.5 0-2 2-2 4s.5 4 2 4M16 3v18"/></svg></span>
-          <h3 data-i18n="cat_4_t">Робота на кухні</h3>
-          <p data-i18n="cat_4_d">Помічники кухаря, фасування, робота на харчових виробництвах.</p>
-        </div>
-      </article>
-      <article class="cat-card">
-        <div class="cc-img"><img src="assets/83BF4EB0-47F0-4C1C-969A-DAB169DDB90D.png" alt="Робота на полях та в теплицях" loading="lazy" /></div>
-        <span class="cc-num">05</span>
-        <div class="cc-body">
-          <span class="cc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c0-6 3-10 8-12-2 6-5 9-8 12zM12 22c0-6-3-10-8-12 2 6 5 9 8 12zM12 22V8"/></svg></span>
-          <h3 data-i18n="cat_5_t">Поля та теплиці</h3>
-          <p data-i18n="cat_5_d">Сезонна та постійна робота у сільському господарстві та теплицях.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= COUNTRIES ================= -->
-<section class="section" id="countries">
-  <div class="container">
-    <div class="head-row reveal">
-      <div class="hr-text">
-        <h2 data-i18n="country_title">Країни, де є робота</h2>
-        <p class="lead" data-i18n="country_sub">Підбираємо вакансії у трьох європейських країнах залежно від вашого запиту.</p>
-      </div>
-      <a href="#hero-form" class="btn btn-ghost hr-cta" data-scroll="hero-form"><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    </div>
-
-    <div class="zz">
-      <article class="zz-row reveal">
-        <div class="zz-media">
-          <div class="ph"><img src="https://picsum.photos/seed/poland-warsaw-city/900/680" alt="Польща — робота для українців" loading="lazy" /></div>
-          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#fff 50%,#dc143c 50%)"></span><b data-i18n="c_pl">Польща</b></div>
-        </div>
-        <div class="zz-body">
-          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_pl_eyebrow">Найближча країна</span></span>
-          <h3 data-i18n="c_pl">Польща</h3>
-          <p class="lead" data-i18n="c_pl_d">Вакансії на складах, заводах, фабриках, у теплицях, прибиранні та інших напрямках.</p>
-          <div class="zz-tags">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_5_t">Поля та теплиці</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_3_t">Прибирання</span></span>
-          </div>
-          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        </div>
-      </article>
-
-      <article class="zz-row rev reveal">
-        <div class="zz-media">
-          <div class="ph"><img src="https://picsum.photos/seed/germany-frankfurt-city/900/680" alt="Німеччина — робота для українців" loading="lazy" /></div>
-          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#111 33%,#dc143c 33% 66%,#ffce00 66%)"></span><b data-i18n="c_de">Німеччина</b></div>
-        </div>
-        <div class="zz-body">
-          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_de_eyebrow">Стабільна зайнятість</span></span>
-          <h3 data-i18n="c_de">Німеччина</h3>
-          <p class="lead" data-i18n="c_de_d">Робота для кандидатів, які хочуть отримати стабільну зайнятість у Європі.</p>
-          <div class="zz-tags">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_2_t">Будівництво</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_4_t">Робота на кухні</span></span>
-          </div>
-          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        </div>
-      </article>
-
-      <article class="zz-row reveal">
-        <div class="zz-media">
-          <div class="ph"><img src="https://picsum.photos/seed/netherlands-rotterdam-city/900/680" alt="Нідерланди — робота для українців" loading="lazy" /></div>
-          <div class="zz-flag"><span class="fl" style="background:linear-gradient(180deg,#ae1c28 33%,#fff 33% 66%,#21468b 66%)"></span><b data-i18n="c_nl">Нідерланди</b></div>
-        </div>
-        <div class="zz-body">
-          <span class="eyebrow"><span class="dot"></span><span data-i18n="c_nl_eyebrow">Сезон та виробництва</span></span>
-          <h3 data-i18n="c_nl">Нідерланди</h3>
-          <p class="lead" data-i18n="c_nl_d">Варіанти роботи на полях, у теплицях, на складах та виробництвах.</p>
-          <div class="zz-tags">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_5_t">Поля та теплиці</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_1_t">Склади, заводи, фабрики</span></span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cat_4_t">Робота на кухні</span></span>
-          </div>
-          <button class="btn btn-ghost" data-open-modal><span data-i18n="c_link">Хочу отримати варіанти</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= HOW IT WORKS ================= -->
-<section class="section" id="how">
-  <div class="container">
-    <div class="how-head reveal">
-      <h2 data-i18n="how_title">Як отримати вакансії</h2>
-      <p class="lead" data-i18n="how_sub">П'ять кроків від заявки до роботи в Європі.</p>
-    </div>
-
-    <div class="wp-block">
-      <div class="wp-cards">
-        <article class="wp-card reveal"><span class="wp-card-no">1</span><div class="wp-card-title" data-i18n="how_1_t">Залиште номер</div><p class="wp-card-sum" data-i18n="how_1_d">Вкажіть Viber або Telegram для зв'язку.</p></article>
-        <article class="wp-card reveal"><span class="wp-card-no">2</span><div class="wp-card-title" data-i18n="how_2_t">Заповніть анкету</div><p class="wp-card-sum" data-i18n="how_2_d">Коротку або детальну — як вам зручно.</p></article>
-        <article class="wp-card reveal"><span class="wp-card-no">3</span><div class="wp-card-title" data-i18n="how_3_t">Менеджер отримає заявку</div><p class="wp-card-sum" data-i18n="how_3_d">Ми опрацюємо ваші дані та запит.</p></article>
-        <article class="wp-card reveal"><span class="wp-card-no">4</span><div class="wp-card-title" data-i18n="how_4_t">Отримаєте вакансії</div><p class="wp-card-sum" data-i18n="how_4_d">Надішлемо актуальні варіанти у месенджер.</p></article>
-        <article class="wp-card reveal"><span class="wp-card-no">5</span><div class="wp-card-title" data-i18n="how_5_t">Оберете роботу</div><p class="wp-card-sum" data-i18n="how_5_d">Виберете відповідний варіант і поїдете.</p></article>
-      </div>
-
-      <div class="wp-rail" aria-hidden="true">
-        <span class="wp-line"></span>
-        <div class="wp-circle">1</div>
-        <div class="wp-circle">2</div>
-        <div class="wp-circle">3</div>
-        <div class="wp-circle">4</div>
-        <div class="wp-circle">5</div>
-      </div>
-
-      <div class="wp-image reveal">
-        <img src="assets/6B49919E-7557-4394-AAEB-99F2F664C027.png" alt="Працевлаштування в Європі з ABURWORK" loading="lazy" />
-        <div class="wp-feed">
-          <div class="wp-feed-head"><b data-i18n="how_feed_t">Останні заявки</b></div>
-          <div class="wp-feed-rows" id="wpFeedRows"></div>
-        </div>
-      </div>
+    <div class="vac-section reveal">
+      <h2 class="vac-title" data-i18n="vac_title">Є більше 500 вакансій від різних агенцій!</h2>
+      <ul class="vac-list">
+        <li data-i18n="vac_1">Склади, заводи, фабрики</li>
+        <li data-i18n="vac_2">Будівництво</li>
+        <li data-i18n="vac_3">Прибирання</li>
+        <li data-i18n="vac_4">Робота на кухні</li>
+        <li data-i18n="vac_5">Праця на полях та в теплицях</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1052,13 +929,13 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
         <a href="#hero-form" class="btn btn-primary btn-lg" data-scroll="hero-form" style="margin-top:26px"><span data-i18n="cta_get">Отримати вакансії</span><span class="ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
       <div class="faq-list reveal" id="faqList">
-        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_1_q">Для кого підходять вакансії?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_1_a">Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_1_q">Для кого підходять вакансії?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_1_a">Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього. Знання іноземних мов не обов'язкове.</div></div></div>
         <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_2_q">У яких країнах є робота?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_2_a">Ми підбираємо вакансії у Польщі, Німеччині та Нідерландах від різних агенцій.</div></div></div>
-        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_3_q">Чи можна їхати парою?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_3_a">Так, є окремі вакансії для пар. Вкажіть це в анкеті — і ми підберемо відповідні варіанти.</div></div></div>
-        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_4_q">Чи є робота без досвіду?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_4_a">Так, більшість напрямків — склади, теплиці, прибирання — не вимагають досвіду. Усьому навчають на місці.</div></div></div>
         <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_5_q">Як я отримаю вакансії?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_5_a">Після заповнення анкети менеджер надішле вам актуальні вакансії у Viber або Telegram — той, що ви оберете.</div></div></div>
         <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_6_q">Чи можна залишити тільки Telegram?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_6_a">Так. Оберіть зручний спосіб зв'язку — Viber або Telegram. Достатньо одного.</div></div></div>
         <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_7_q">Скільки часу займає підбір вакансій?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_7_a">Зазвичай ми надсилаємо перші варіанти протягом 1–2 днів після отримання заявки.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_8_q">Чи допомагаєте з документами?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_8_a">Так, у нас є спеціалісти, які допоможуть вам підготувати та оформити всі необхідні документи.</div></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span data-i18n="faq_9_q">Скільки можна заробляти?</span><span class="faq-icon"></span></button><div class="faq-a"><div class="faq-a-inner" data-i18n="faq_9_a">Заробітна плата залежить від країни, вакансії, графіка та досвіду. Перед поїздкою ми надаємо всю інформацію по оплаті та умовах.</div></div></div>
       </div>
     </div>
   </div>
@@ -1087,14 +964,13 @@ h3{font-size:clamp(1.2rem,2vw,1.45rem)}
         <div class="brand">
           <img class="brand-logo footer-logo" src="assets/ABURWORK_logo_transparent.png" alt="ABURWORK — Робота в Європі" />
         </div>
-        <p data-i18n="foot_about">Сервіс підбору роботи в Європі для українців. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.</p>
+        <p data-i18n="foot_about">Сервіс підбору роботи в Європі. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.</p>
       </div>
       <div class="footer-col">
         <h4 data-i18n="foot_nav">Навігація</h4>
-        <a href="#categories" data-i18n="nav_jobs">Вакансії</a>
-        <a href="#countries" data-i18n="nav_countries">Країни</a>
-        <a href="#how" data-i18n="nav_how">Як це працює</a>
+        <a href="#why" data-i18n="nav_about">Про нас</a>
         <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <p class="foot-cta-text" data-i18n-html="foot_cta">Щоб отримати актуальні вакансії, заповніть коротку анкету або напишіть у Viber чи Telegram: <a href="tel:+380976802942">+380 97 680 29 42</a></p>
       </div>
       <div class="footer-col foot-contact">
         <h4 data-i18n="nav_contacts">Контакти</h4>
@@ -1275,24 +1151,26 @@ const TELEGRAM_CHAT_ID   = ""; // напр. "123456789" (ваш chat_id або i
 /* ----- 2. TRANSLATIONS ----- */
 const translations = {
   ua: {
-    nav_jobs:"Вакансії", nav_countries:"Країни", nav_how:"Як це працює", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакти",
+    nav_jobs:"Вакансії", nav_about:"Про нас", nav_countries:"Країни", nav_how:"Як це працює", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакти",
     cta_get:"Отримати вакансії", cta_detailed:"Заповнити детальну анкету", cta_pick:"Підібрати вакансію", cta_send:"Надіслати анкету", cta_widget:"Заповнити анкету", retry:"Спробувати ще раз",
+    vac_title:"Є більше 500 вакансій від різних агенцій!", vac_1:"Склади, заводи, фабрики", vac_2:"Будівництво", vac_3:"Прибирання", vac_4:"Робота на кухні", vac_5:"Праця на полях та в теплицях",
     stat_1:"країни для роботи: Польща, Німеччина, Нідерланди", stat_2:"напрямків вакансій від різних агенцій", stat_3:"вік кандидатів: чоловіки, жінки, пари",
     logos_label:"Працюємо з перевіреними агенціями та роботодавцями в Європі",
     m_1:"Склади та фабрики", m_2:"Будівництво", m_3:"Прибирання", m_4:"Кухня", m_5:"Поля та теплиці", m_6:"Логістика",
-    why_eyebrow:"Чому ABURWORK", why_title:"Чому обирають <span class=\"gold-text\">ABURWORK</span>", why_sub:"Ми збираємо актуальні вакансії від перевірених агенцій і супроводжуємо вас на кожному етапі — від анкети до виїзду.", why_sub2:"Ми працюємо лише з перевіреними агенціями та офіційними роботодавцями, тож ви отримуєте реальні пропозиції з прозорими умовами оплати та проживання. Наша команда супроводжує вас від першого повідомлення до виїзду: допоможемо обрати вакансію, підготувати документи й відповімо на всі запитання українською мовою.",
-    why_1_t:"Перевірені агенції та роботодавці",
-    why_2_t:"Актуальні вакансії у Європі",
-    why_3_t:"Підтримка на кожному етапі",
-    why_4_t:"Допомога з анкетою та документами",
+    why_eyebrow:"Про нас", why_title:"Про нас",
+    why_sub:"ABURWORK — це команда, яка допомагає людям знаходити роботу в Європі.",
+    why_sub2:"Ми співпрацюємо з багатьма рекрутерами, які разом мають понад 500 актуальних вакансій від різних агенцій.",
+    why_sub3:"Щоб отримати вакансії, заповніть коротку анкету. Після цього ми зв'яжемося з вами, поставимо кілька уточнюючих питань і підберемо тільки ті вакансії, які відповідають вашим побажанням.",
+    why_sub4:"Також ви можете самостійно написати нам у Viber або Telegram:<br><a href='tel:+380976802942' class='why-phone'>+380 97 680 29 42</a>",
+    why_sub5:"Додатково ми допомагаємо з виготовленням усіх необхідних документів для працевлаштування.",
     why_stat_t:"актуальних вакансій", why_stat_s:"у Польщі, Німеччині та Нідерландах",
     c_pl_eyebrow:"Найближча країна", c_de_eyebrow:"Стабільна зайнятість", c_nl_eyebrow:"Сезон та виробництва",
     how_n1:"КРОК 01", how_n2:"КРОК 02", how_n3:"КРОК 03", how_n4:"КРОК 04", how_n5:"КРОК 05",
     hero_eyebrow:"Підбір роботи в Європі",
-    hero_h1:"Робота в Європі <span class='gold-text wm'>для українців</span>",
+    hero_h1:"Робота в <span class='gold-text wm'>Польщі, Німеччині та Нідерландах</span>",
     hero_sub:"Заповніть анкету — і ми надішлемо вам актуальні вакансії у Польщі, Німеччині та Нідерландах у Viber або Telegram.",
     badge_pl:"Польща", badge_de:"Німеччина", badge_nl:"Нідерланди", badge_who:"Чоловіки, жінки, пари", badge_age:"Вік 17–65",
-    form_title:"Отримати вакансії", form_subtitle:"Залиште контакти — надішлемо актуальні вакансії за 1–2 дні.",
+    form_title:"Отримати вакансії", form_subtitle:"Щоб отримати актуальні вакансії, заповніть коротку анкету або напишіть нам у Viber чи Telegram: +380 97 680 29 42.",
     lbl_name:"Ім'я", lbl_phone:"Номер телефону", lbl_method:"Спосіб зв'язку",
     ph_name:"Ваше ім'я", ph_phone:"+380 __ ___ __ __",
     err_name:"Вкажіть ваше ім'я", err_phone:"Вкажіть коректний номер телефону", err_method:"Оберіть спосіб зв'язку",
@@ -1327,15 +1205,16 @@ const translations = {
     how_feed_t:"Останні заявки", how_feed_s_sent:"Надіслано", how_feed_s_review:"На розгляді", how_feed_s_offer:"Є вакансія",
     ak_title:"Заповніть детальну анкету", ak_sub:"Так ми швидше підберемо вакансії саме під вас — за країною, досвідом і бажаною зарплатою.",
     faq_eyebrow:"Часті запитання", faq_title:"Відповіді на ваші питання", faq_sub:"Не знайшли відповідь? Напишіть нам у Viber або Telegram.",
-    faq_1_q:"Для кого підходять вакансії?", faq_1_a:"Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього.",
+    faq_1_q:"Для кого підходять вакансії?", faq_1_a:"Вакансії підходять для чоловіків, жінок і пар віком від 17 до 65 років. Є варіанти як з досвідом, так і без нього. Знання іноземних мов не обов'язкове.",
     faq_2_q:"У яких країнах є робота?", faq_2_a:"Ми підбираємо вакансії у Польщі, Німеччині та Нідерландах від різних агенцій.",
-    faq_3_q:"Чи можна їхати парою?", faq_3_a:"Так, є окремі вакансії для пар. Вкажіть це в анкеті — і ми підберемо відповідні варіанти.",
-    faq_4_q:"Чи є робота без досвіду?", faq_4_a:"Так, більшість напрямків — склади, теплиці, прибирання — не вимагають досвіду. Усьому навчають на місці.",
     faq_5_q:"Як я отримаю вакансії?", faq_5_a:"Після заповнення анкети менеджер надішле вам актуальні вакансії у Viber або Telegram — той, що ви оберете.",
     faq_6_q:"Чи можна залишити тільки Telegram?", faq_6_a:"Так. Оберіть зручний спосіб зв'язку — Viber або Telegram. Достатньо одного.",
     faq_7_q:"Скільки часу займає підбір вакансій?", faq_7_a:"Зазвичай ми надсилаємо перші варіанти протягом 1–2 днів після отримання заявки.",
+    faq_8_q:"Чи допомагаєте з документами?", faq_8_a:"Так, у нас є спеціалісти, які допоможуть вам підготувати та оформити всі необхідні документи.",
+    faq_9_q:"Скільки можна заробляти?", faq_9_a:"Заробітна плата залежить від країни, вакансії, графіка та досвіду. Перед поїздкою ми надаємо всю інформацію по оплаті та умовах.",
     final_eyebrow:"Зробіть перший крок", final_title:"Хочете отримати актуальні вакансії?", final_sub:"Залиште номер Viber або Telegram — і ми надішлемо вам варіанти роботи в Польщі, Німеччині та Нідерландах.",
-    foot_about:"Сервіс підбору роботи в Європі для українців. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.",
+    foot_about:"Сервіс підбору роботи в Європі. Допомагаємо знайти актуальні вакансії в Польщі, Німеччині та Нідерландах через перевірені агенції.",
+    foot_cta:"Щоб отримати актуальні вакансії, заповніть коротку анкету або напишіть у Viber чи Telegram: <a href='tel:+380976802942'>+380 97 680 29 42</a>",
     foot_nav:"Навігація", foot_docs:"Документи", foot_contacts_block:"Наші контакти", foot_map:"Працюємо онлайн по всій Україні. Зв'язок та консультації — у Viber та Telegram.", foot_rights:"© 2026 ABURWORK. Усі права захищені.",
     doc_privacy:"Політика конфіденційності", doc_consent:"Згода на обробку персональних даних",
     modal_eyebrow:"Детальна анкета", modal_title:"Заповніть детальну анкету", modal_sub:"Так ми швидше підберемо вакансії під ваш запит.",
@@ -1353,24 +1232,26 @@ const translations = {
     tg_age:"Вік", tg_country_now:"Країна перебування", tg_country_work:"Бажана країна роботи", tg_exp:"Досвід", tg_ready:"Коли готовий / готова виїхати", tg_salary:"Бажана зарплата", tg_comment:"Коментар", tg_empty:"—"
   },
   ru: {
-    nav_jobs:"Вакансии", nav_countries:"Страны", nav_how:"Как это работает", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакты",
+    nav_jobs:"Вакансии", nav_about:"О нас", nav_countries:"Страны", nav_how:"Как это работает", nav_form:"Анкета", nav_faq:"FAQ", nav_contacts:"Контакты",
     cta_get:"Получить вакансии", cta_detailed:"Заполнить подробную анкету", cta_pick:"Подобрать вакансию", cta_send:"Отправить анкету", cta_widget:"Заполнить анкету", retry:"Попробовать ещё раз",
+    vac_title:"Более 500 вакансий от разных агентств!", vac_1:"Склады, заводы, фабрики", vac_2:"Строительство", vac_3:"Уборка", vac_4:"Работа на кухне", vac_5:"Работа на полях и в теплицах",
     stat_1:"страны для работы: Польша, Германия, Нидерланды", stat_2:"направлений вакансий от разных агентств", stat_3:"возраст кандидатов: мужчины, женщины, пары",
     logos_label:"Работаем с проверенными агентствами и работодателями в Европе",
     m_1:"Склады и фабрики", m_2:"Строительство", m_3:"Уборка", m_4:"Кухня", m_5:"Поля и теплицы", m_6:"Логистика",
-    why_eyebrow:"Почему ABURWORK", why_title:"Почему выбирают <span class=\"gold-text\">ABURWORK</span>", why_sub:"Мы собираем актуальные вакансии от проверенных агентств и сопровождаем вас на каждом этапе — от анкеты до выезда.", why_sub2:"Мы работаем только с проверенными агентствами и официальными работодателями, поэтому вы получаете реальные предложения с прозрачными условиями оплаты и проживания. Наша команда сопровождает вас от первого сообщения до выезда: поможем выбрать вакансию, подготовить документы и ответим на все вопросы на русском языке.",
-    why_1_t:"Проверенные агентства и работодатели",
-    why_2_t:"Актуальные вакансии в Европе",
-    why_3_t:"Поддержка на каждом этапе",
-    why_4_t:"Помощь с анкетой и документами",
+    why_eyebrow:"О нас", why_title:"О нас",
+    why_sub:"ABURWORK — это команда, которая помогает людям находить работу в Европе.",
+    why_sub2:"Мы сотрудничаем со многими рекрутерами, которые вместе имеют более 500 актуальных вакансий от разных агентств.",
+    why_sub3:"Чтобы получить вакансии, заполните короткую анкету. После этого мы свяжемся с вами, зададим несколько уточняющих вопросов и подберём только те вакансии, которые соответствуют вашим пожеланиям.",
+    why_sub4:"Также вы можете самостоятельно написать нам в Viber или Telegram:<br><a href='tel:+380976802942' class='why-phone'>+380 97 680 29 42</a>",
+    why_sub5:"Дополнительно мы помогаем с оформлением всех необходимых документов для трудоустройства.",
     why_stat_t:"актуальных вакансий", why_stat_s:"в Польше, Германии и Нидерландах",
     c_pl_eyebrow:"Ближайшая страна", c_de_eyebrow:"Стабильная занятость", c_nl_eyebrow:"Сезон и производства",
     how_n1:"ШАГ 01", how_n2:"ШАГ 02", how_n3:"ШАГ 03", how_n4:"ШАГ 04", how_n5:"ШАГ 05",
     hero_eyebrow:"Подбор работы в Европе",
-    hero_h1:"Работа в Европе <span class='gold-text wm'>для украинцев</span>",
+    hero_h1:"Работа в <span class='gold-text wm'>Польше, Германии и Нидерландах</span>",
     hero_sub:"Заполните анкету — и мы пришлём вам актуальные вакансии в Польше, Германии и Нидерландах в Viber или Telegram.",
     badge_pl:"Польша", badge_de:"Германия", badge_nl:"Нидерланды", badge_who:"Мужчины, женщины, пары", badge_age:"Возраст 17–65",
-    form_title:"Получить вакансии", form_subtitle:"Оставьте контакты — пришлём актуальные вакансии за 1–2 дня.",
+    form_title:"Получить вакансии", form_subtitle:"Чтобы получить актуальные вакансии, заполните короткую анкету или напишите нам в Viber или Telegram: +380 97 680 29 42.",
     lbl_name:"Имя", lbl_phone:"Номер телефона", lbl_method:"Способ связи",
     ph_name:"Ваше имя", ph_phone:"+380 __ ___ __ __",
     err_name:"Укажите ваше имя", err_phone:"Укажите корректный номер телефона", err_method:"Выберите способ связи",
@@ -1405,15 +1286,16 @@ const translations = {
     how_feed_t:"Последние заявки", how_feed_s_sent:"Отправлено", how_feed_s_review:"На рассмотрении", how_feed_s_offer:"Есть вакансия",
     ak_title:"Заполните подробную анкету", ak_sub:"Так мы быстрее подберём вакансии именно под вас — по стране, опыту и желаемой зарплате.",
     faq_eyebrow:"Частые вопросы", faq_title:"Ответы на ваши вопросы", faq_sub:"Не нашли ответ? Напишите нам в Viber или Telegram.",
-    faq_1_q:"Для кого подходят вакансии?", faq_1_a:"Вакансии подходят для мужчин, женщин и пар в возрасте от 17 до 65 лет. Есть варианты как с опытом, так и без него.",
+    faq_1_q:"Для кого подходят вакансии?", faq_1_a:"Вакансии подходят для мужчин, женщин и пар в возрасте от 17 до 65 лет. Есть варианты как с опытом, так и без него. Знание иностранных языков не обязательно.",
     faq_2_q:"В каких странах есть работа?", faq_2_a:"Мы подбираем вакансии в Польше, Германии и Нидерландах от разных агентств.",
-    faq_3_q:"Можно ли ехать парой?", faq_3_a:"Да, есть отдельные вакансии для пар. Укажите это в анкете — и мы подберём подходящие варианты.",
-    faq_4_q:"Есть ли работа без опыта?", faq_4_a:"Да, большинство направлений — склады, теплицы, уборка — не требуют опыта. Всему обучают на месте.",
     faq_5_q:"Как я получу вакансии?", faq_5_a:"После заполнения анкеты менеджер пришлёт вам актуальные вакансии в Viber или Telegram — тот, что вы выберете.",
     faq_6_q:"Можно оставить только Telegram?", faq_6_a:"Да. Выберите удобный способ связи — Viber или Telegram. Достаточно одного.",
     faq_7_q:"Сколько времени занимает подбор вакансий?", faq_7_a:"Обычно мы присылаем первые варианты в течение 1–2 дней после получения заявки.",
+    faq_8_q:"Помогаете ли с документами?", faq_8_a:"Да, у нас есть специалисты, которые помогут вам подготовить и оформить все необходимые документы.",
+    faq_9_q:"Сколько можно зарабатывать?", faq_9_a:"Заработная плата зависит от страны, вакансии, графика и опыта. Перед поездкой мы предоставляем всю информацию по оплате и условиям.",
     final_eyebrow:"Сделайте первый шаг", final_title:"Хотите получить актуальные вакансии?", final_sub:"Оставьте номер Viber или Telegram — и мы пришлём вам варианты работы в Польше, Германии и Нидерландах.",
-    foot_about:"Сервис подбора работы в Европе для украинцев. Помогаем найти актуальные вакансии в Польше, Германии и Нидерландах через проверенные агентства.",
+    foot_about:"Сервис подбора работы в Европе. Помогаем найти актуальные вакансии в Польше, Германии и Нидерландах через проверенные агентства.",
+    foot_cta:"Чтобы получить актуальные вакансии, заполните короткую анкету или напишите в Viber или Telegram: <a href='tel:+380976802942'>+380 97 680 29 42</a>",
     foot_nav:"Навигация", foot_docs:"Документы", foot_contacts_block:"Наши контакты", foot_map:"Работаем онлайн по всей Украине. Связь и консультации — в Viber и Telegram.", foot_rights:"© 2026 ABURWORK. Все права защищены.",
     doc_privacy:"Политика конфиденциальности", doc_consent:"Согласие на обработку персональных данных",
     modal_eyebrow:"Подробная анкета", modal_title:"Заполните подробную анкету", modal_sub:"Так мы быстрее подберём вакансии под ваш запрос.",
@@ -1639,6 +1521,7 @@ function buildShortMessage(data){
     esc(t("tg_name"))+": "+esc(data.name)+"\n" +
     esc(t("tg_phone"))+": "+esc(data.phone)+"\n" +
     esc(t("tg_method"))+": "+esc(data.method)+"\n" +
+    esc(t("tg_country_work"))+": "+esc(data.country_work || t("tg_empty"))+"\n" +
     esc(t("tg_lang"))+": "+esc(langLabel())+"\n" +
     esc(t("tg_date"))+": "+esc(nowStamp());
 }
